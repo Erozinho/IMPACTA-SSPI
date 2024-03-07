@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'FAV',
-    
+
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -56,7 +56,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost:3000',  # for localhost (REACT Default)
-    'http://192.168.0.50:3000',  # for network 
+    'http://192.168.0.50:3000',  # for network
     'http://localhost:8080',  # for localhost (Developlemt)
     'http://192.168.0.50:8080',  # for network (Development)
     "https://adgard.net",
@@ -105,7 +105,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
+
 ]
 
 ROOT_URLCONF = 'impactasppi.urls'
