@@ -14,15 +14,9 @@
 <p align="left">
 
 # 📑 Tema do projeto:
-<h4>Bank Line</h4>
-Nosso projeto se tratá de uma Bank Line, ou seja, é uma representação de como seria um banco real e suas funcionalidades mais basicas possiveis, como: transferencia entre contas, consutar saldo existente, checar sua fatura do cartão de credito e afins.
+<h4>Market Place</h4>
+Desenvolvimento de um market place inovador para facilitar a conexão entre compradores e vendedores, promovendo uma experiência de compra online intuitiva e eficiente.
 </p>
 
 <p align="left">
-
-# 🚀 Como executar:
-**Nescessario ter o <a href="https://www.python.org/downloads/">python</a> instalado em seu equipamento!**<br>Clone o repositório em seu computador e no terminal execute: **pip install -r requirements.txt**.<br>Após execute o arquivo **main.py** localizado no repositório para iniciar os serviços!
-
-<i>Lembrete:<br></i>
-**Por motivos de segurança a servicekey do banco de dados não esta incluso no repositório!!**
 </p>
