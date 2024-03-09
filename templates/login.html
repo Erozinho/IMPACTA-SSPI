@@ -1,0 +1,50 @@
+{% load static %}
+ <!-- Responsive login page template by midoghranek-->
+
+
+<link rel = "stylesheet" href = "{% static 'login.css' %}">
+
+ <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+ <link href='https://fonts.googleapis.com/css?family=Arimo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+ <link href='https://fonts.googleapis.com/css?family=Stint+Ultra+Condensed' rel='stylesheet' type='text/css'>
+
+ 
+ <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
+ 
+ <div class="signform">
+ 
+    <!-- left side will be in the top at 640px screen-->
+ <div class="left">
+ <div class="bts">
+ <a href="#" class="fblogin"><i class="fa fa-facebook"></i><span>Sign in with facebook</span></a>
+ <a href="#" class="gplogin"><i class="fa fa-google-plus"></i><span>Sign in with Google</span></a>
+ <a href="#" class="twlogin"><i class="fa fa-twitter"></i><span>Sign in with twitter</span></a>
+ </div>
+ </div>
+ <!-- end left side -->
+   
+   <!-- right side will be in the bottom at 640px screen-->
+ <div class="right">
+ 
+   <div class="headit">
+ <h>login here or </h><a href="#">sign up now</a>
+   </div>
+ <form>
+ <div class="input-group margin-bottom-sm">
+   <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+   <input class="form-control" type="text" placeholder="Email address">
+ </div>
+ <div class="input-group">
+   <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+   <input class="form-control" type="password" placeholder="Password">
+ </div>
+ <input class="subbt" type="submit" value="login" />
+ </form>
+ 
+ <a href="#">Forgot your password?</a>
+ 
+ </div>
+   <!-- end left side -->
+ </div>
+ 
+ 
