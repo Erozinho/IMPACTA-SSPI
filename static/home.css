@@ -1,0 +1,17 @@
+#img-fundo{
+    float: left;
+    position: relative;
+    max-width: 1000%;
+    height: auto; 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#txt {
+    position: absolute;
+    top: 0;
+    left: 100px;
+    color: aliceblue;
+}
