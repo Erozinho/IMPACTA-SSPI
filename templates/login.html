@@ -1,49 +1,46 @@
+{%extends 'base.html'%}
+
+{%block content%}
 {% load static %}
- <!-- Responsive login page template by midoghranek-->
+<body>
+  <div id="particles-js" class="snow"></div>
 
+  <main>
+     <div class="left-side"></div>
+    
+    <div class="right-side">
+      <form>
+      <div class="btn-group">
+        <button class="btn">
+          <img class="logo" src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/d1c98974-c62d-4071-8bd2-ab859fc5f4e9" alt="" />
+          <span>Sign in with Google</span>
+        </button>
+        <button class="btn">
+          <img class="logo" src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/59c1561b-8152-4d05-b617-0680a7629a0e" alt="" />
+          <span>Sign in with Apple</span>
+        </button>
+      </div>
 
-<link href="{% static 'login.css' %}" rel="stylesheet" type='text/css'>
- <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
- <link href='https://fonts.googleapis.com/css?family=Arimo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
- <link href='https://fonts.googleapis.com/css?family=Stint+Ultra+Condensed' rel='stylesheet' type='text/css'>
+      <div class="or">OR</div>
 
- 
- <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
- 
- <div class="signform">
- 
-    <!-- left side will be in the top at 640px screen-->
- <div class="left">
- <div class="bts">
- <a href="#" class="fblogin"><i class="fa fa-facebook"></i><span>Sign in with facebook</span></a>
- <a href="#" class="gplogin"><i class="fa fa-google-plus"></i><span>Sign in with Google</span></a>
- <a href="#" class="twlogin"><i class="fa fa-twitter"></i><span>Sign in with twitter</span></a>
- </div>
- </div>
- <!-- end left side -->
-   
-   <!-- right side will be in the bottom at 640px screen-->
- <div class="right">
- 
-   <div class="headit">
- <h>login here or </h><a href="#">sign up now</a>
-   </div>
- <form>
- <div class="input-group margin-bottom-sm">
-   <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
-   <input class="form-control" type="text" placeholder="Email address">
- </div>
- <div class="input-group">
-   <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-   <input class="form-control" type="password" placeholder="Password">
- </div>
- <input class="subbt" type="submit" value="login" />
- </form>
- 
- <a href="#">Forgot your password?</a>
- 
- </div>
-   <!-- end left side -->
- </div>
- 
- 
+      <label for="email">Email</label>
+      <input type="text" placeholder="Enter Email" name="email" required />
+
+      <label for="password">Password</label>
+      <input
+        type="password"
+        placeholder="Enter Password"
+        name="password"
+        required />
+
+      <button type="submit" class="login-btn">Sign in</button>
+      <div class="links">
+        <a href="#">Forgot password?</a>
+        <a href="#">Do not have an account?</a>
+      </div>
+    </form>
+    </div>
+    
+  </main>
+</body>
+{%endblock content%}
