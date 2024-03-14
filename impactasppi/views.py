@@ -3,17 +3,20 @@ from django.views.generic import TemplateView # Import TemplateView
 from django.contrib import messages
 import pyrebase
 
-config = {'apiKey': "AIzaSyDTm56zPBOzgblJgsnUHD-qXI7-vXJVfk4",
+config = {
+  'apiKey': "AIzaSyDTm56zPBOzgblJgsnUHD-qXI7-vXJVfk4",
   'authDomain': "impacta--sppi.firebaseapp.com",
   'projectId': "impacta--sppi",
   'storageBucket': "impacta--sppi.appspot.com",
   'messagingSenderId': "700556689434",
   'appId': "1:700556689434:web:b5347313e1273b19fa91a3",
   'measurementId': "G-W9XPPBZG1S",
-  'databaseURL' : ''}
+  'databaseURL' : ''
+  }
 
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
+database = firebase.database()
 
 # Create your views here.
 
