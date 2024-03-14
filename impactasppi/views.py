@@ -51,8 +51,9 @@ def postSignUp(request):
     try:
         user = auth.create_user_with_email_and_password(email, pasw)
     except:
-        message = "e-mail já esta em uso!"
-        return redirect('login', {"message": message})
+        messages.info(request, 'Contact request submitted successfully.')
+        message = "a"
+        return redirect('/login', {"message": message})
     session_id = user['idToken']
     request.session['uid'] = str(session_id)
     return render(request, home(), {"email": email})
