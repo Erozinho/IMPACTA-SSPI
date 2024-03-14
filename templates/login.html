@@ -8,15 +8,14 @@
 
 <div class="container">
 
+    <!-- SEÇÃO DE REGISTRO -->
+
     <div class="singup-section" id="singup-section">
-        <header id="singup" onclick="closelogin()">Singup</header>
+        <header id="singup" onclick="closelogin()">Registro</header>
 
         <div class="social-buttons">
             <button><i class='bx bxl-google-plus'></i>
-                Use Google
-            </button>
-            <button><i class='bx bxl-apple'></i>
-                Use Apple
+                Cadastrar com Google
             </button>
         </div>
         <style>
@@ -24,16 +23,17 @@
         </style>
         <div class="seperator">
             <div class="line"></div>
-            <p>Or</p>
+            <p>Ou</p>
             <div class="line"></div>
         </div>
-        <form action="#" method="post">
-            <input type="text" placeholder="Full name" name = "name" required>
-            <input type="email" placeholder="email address" name="email" required>
-            <input type="password" placeholder="Password" name="pass" required>
-            <a href="#">Froget Password?</a>
+        <form action="/postSignUp/" method="post">
+            {% csrf_token %}
+            <input type="text" placeholder="Nome Completo" name = "name" required>
+            <input type="email" placeholder="Seu Melhor e-mail!" name="email" required>
+            <input type="password" placeholder="Senha" name="pass" required>
+            <a href="#">Esqueceu a senha?</a>
 
-            <button type="submit" class="btn">Singup</button>
+            <button type="submit" class="btn">Registrar</button>
 
 
 
@@ -41,31 +41,31 @@
 
     </div>
 
+    <!-- SEÇÃO DE LOGIN -->
+
     <div class="login-section" id="login-section">
-        <header id="login" onclick="openlogin()">Login</header>
+        <header id="login" onclick="openlogin()">Entrar</header>
 
         <div class="social-buttons">
             <button><i class='bx bxl-google-plus'></i>
-                Use Google
-            </button>
-            <button><i class='bx bxl-apple'></i>
-                Use Apple
+                Entrar com Google
             </button>
         </div>
         <div class="seperator">
             <div class="line"></div>
-            <p>Or</p>
+            <p>Ou</p>
             <div class="line"></div>
         </div>
 
         
         
         
-        <form action="#">
-            <input type="email" placeholder="email address" name="lemail" required>
-            <input type="password" placeholder="Password" name="lpass" value="ccccc" required>
-            <a href="#">Froget Password?</a>
-            <button type="submit" class="btn">Login</button>
+        <form action="/postLogin/" method="post">
+            {% csrf_token %}
+            <input type="email" placeholder="e-mail cadastrado" name="lemail" required>
+            <input type="password" placeholder="Senha!" name="lpass" required>
+            <a href="#">Esqueceu a senha?</a>
+            <button type="submit" class="btn">Entrar</button>
         </form>
 
     </div>
