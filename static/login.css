@@ -24,7 +24,7 @@ body{
     height: 640px;
     border-radius: 12px;
     padding: 20px 30px 120px;
-    background-color: #303f9f;
+    background-color: #208447;
     box-shadow: 0 5px 10px rgba(0, 0, 0,0.1);
     overflow: hidden;
 }
@@ -145,11 +145,8 @@ form .btn{
     cursor: pointer;
 }
 .login-section .btn{
-    background-color: #303f9f;
+    background-color: #208447;
     color: #fff;
     border: none;
 
 }
-
-
-
