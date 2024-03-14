@@ -1,46 +1,81 @@
-{%extends 'base.html'%}
-
-{%block content%}
 {% load static %}
-<body>
-  <div id="particles-js" class="snow"></div>
-
-  <main>
-     <div class="left-side"></div>
+<link rel = "stylesheet" href = "{% static 'login.css' %}">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
     
-    <div class="right-side">
-      <form>
-      <div class="btn-group">
-        <button class="btn">
-          <img class="logo" src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/d1c98974-c62d-4071-8bd2-ab859fc5f4e9" alt="" />
-          <span>Sign in with Google</span>
-        </button>
-        <button class="btn">
-          <img class="logo" src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/59c1561b-8152-4d05-b617-0680a7629a0e" alt="" />
-          <span>Sign in with Apple</span>
-        </button>
-      </div>
 
-      <div class="or">OR</div>
+<div class="container">
 
-      <label for="email">Email</label>
-      <input type="text" placeholder="Enter Email" name="email" required />
+    <div class="singup-section" id="singup-section">
+        <header id="singup" onclick="closelogin()">Singup</header>
 
-      <label for="password">Password</label>
-      <input
-        type="password"
-        placeholder="Enter Password"
-        name="password"
-        required />
+        <div class="social-buttons">
+            <button><i class='bx bxl-google-plus'></i>
+                Use Google
+            </button>
+            <button><i class='bx bxl-apple'></i>
+                Use Apple
+            </button>
+        </div>
+        <style>
+            
+        </style>
+        <div class="seperator">
+            <div class="line"></div>
+            <p>Or</p>
+            <div class="line"></div>
+        </div>
+        <form action="#" method="post">
+            <input type="text" placeholder="Full name" name = "name" required>
+            <input type="email" placeholder="email address" name="email" required>
+            <input type="password" placeholder="Password" name="pass" required>
+            <a href="#">Froget Password?</a>
 
-      <button type="submit" class="login-btn">Sign in</button>
-      <div class="links">
-        <a href="#">Forgot password?</a>
-        <a href="#">Do not have an account?</a>
-      </div>
-    </form>
+            <button type="submit" class="btn">Singup</button>
+
+
+
+        </form>
+
     </div>
-    
-  </main>
-</body>
-{%endblock content%}
+
+    <div class="login-section" id="login-section">
+        <header id="login" onclick="openlogin()">Login</header>
+
+        <div class="social-buttons">
+            <button><i class='bx bxl-google-plus'></i>
+                Use Google
+            </button>
+            <button><i class='bx bxl-apple'></i>
+                Use Apple
+            </button>
+        </div>
+        <div class="seperator">
+            <div class="line"></div>
+            <p>Or</p>
+            <div class="line"></div>
+        </div>
+
+        
+        
+        
+        <form action="#">
+            <input type="email" placeholder="email address" name="lemail" required>
+            <input type="password" placeholder="Password" name="lpass" value="ccccc" required>
+            <a href="#">Froget Password?</a>
+            <button type="submit" class="btn">Login</button>
+        </form>
+
+    </div>
+
+
+
+
+
+
+</div>
+
+
+
+<script src="{% static 'login.js' %}"></script>
