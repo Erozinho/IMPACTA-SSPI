@@ -1,10 +1,9 @@
 {% load static %}
-   
-{% if message %}
-<script>
-    alert('{{ message }}');
-</script>
-{% endif %}
+{%if msg%}
+    <script>
+        window.alert('{{msg}}');
+    </script>
+{% endif%}
 <head>
   <link href='{% static "login.css" %}' rel='stylesheet'>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
