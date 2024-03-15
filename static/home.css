@@ -55,3 +55,7 @@ body{
 #txt-pesquisa{
     height: 25px;
 }
+
+#sid{
+    display: none;
+}
