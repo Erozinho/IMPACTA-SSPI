@@ -56,7 +56,7 @@ def register(request):
         message = "Dados incorretos/Já Cadastrados!"
         return redirect('/login', {"message": message})
     session_id = user['idToken']
-    db
+    db.child(str(session_id)).set(name)
     request.session['uid'] = str(session_id)
     return redirect("/login", {"email": email})
 
