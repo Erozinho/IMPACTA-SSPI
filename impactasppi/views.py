@@ -40,7 +40,7 @@ def postLogin(request):
         return render(request, "login.html", {"message": message})
     session_id = user['idToken']
     request.session['uid'] = str(session_id)
-    return redirect(home(), {"email": email})
+    return redirect('/', {"email": email})
 
 
 def postSignUp(request):

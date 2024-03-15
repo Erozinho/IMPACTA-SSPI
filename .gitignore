@@ -1,6 +1,7 @@
 *.json
 __pycache__
 */__pycache__
-db.sqllite3
+db.sqlite3
+*.sqlite3
 .env
 *.env
