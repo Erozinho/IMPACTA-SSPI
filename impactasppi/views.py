@@ -9,22 +9,23 @@ log = logging
 
 config = {'apiKey': "AIzaSyDTm56zPBOzgblJgsnUHD-qXI7-vXJVfk4",
   'authDomain': "impacta--sppi.firebaseapp.com",
+  'databaseURL': "https://impacta--sppi-default-rtdb.firebaseio.com",
   'projectId': "impacta--sppi",
   'storageBucket': "impacta--sppi.appspot.com",
   'messagingSenderId': "700556689434",
   'appId': "1:700556689434:web:b5347313e1273b19fa91a3",
-  'measurementId': "G-W9XPPBZG1S",
-  'databaseURL' : ''}
+  'measurementId': "G-W9XPPBZG1S"}
 
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
-database = firebase.database()
+db = firebase.database()
 
 # Create your views here.
 
 
 def home(request):
-    return render(request, "home.html")
+    if request.method == "GET":
+        return render(request, "home.html")
 
 
 def login(request):
@@ -41,7 +42,7 @@ def login(request):
             return render(request, "login.html", {"message": message})
         session_id = user['idToken']
         request.session['uid'] = str(session_id)
-        return redirect('/', {"email": email})
+        return redirect('/', {"sid": str(session_id)})
 
 
 def register(request):
@@ -55,6 +56,7 @@ def register(request):
         message = "Dados incorretos/Já Cadastrados!"
         return redirect('/login', {"message": message})
     session_id = user['idToken']
+    db
     request.session['uid'] = str(session_id)
     return redirect("/login", {"email": email})
 
