@@ -36,7 +36,7 @@ def login(request):
         pasw = request.POST.get('lpass')
         try:
             user = auth.sign_in_with_email_and_password(email, pasw)
-        except user.DoesNotExist:
+        except:
             message = "Invalid Credentials!!Please ChecK your Data"
             return render(request, "login.html", {"message": message})
         session_id = user['idToken']

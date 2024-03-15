@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", views.home, name="home"),
     path("login/", views.login, name="login"),  # type: ignore
-    path("register/", views.login, name="register"),  # type: ignore
+    path("register/", views.register, name="register"),  # type: ignore
     path('logout/', views.logout, name="log"),
     path('forget/', views.forget),  # type: ignore
 ]
