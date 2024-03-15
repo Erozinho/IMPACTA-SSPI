@@ -32,7 +32,7 @@
             <p>Ou</p>
             <div class="line"></div>
         </div>
-        <form action="/postSignUp/" method="post">
+        <form action="/register/" method="post">
             {% csrf_token %}
             <input type="text" placeholder="Nome Completo" name = "name" required>
             <input type="email" placeholder="Seu Melhor e-mail!" name="email" required>
@@ -66,7 +66,7 @@
         
         
         
-        <form action="/postLogin/" method="post">
+        <form action="/login/" method="post">
             {% csrf_token %}
             <input type="email" placeholder="e-mail cadastrado" name="lemail" required>
             <input type="password" placeholder="Senha!" name="lpass" required>

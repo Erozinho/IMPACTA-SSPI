@@ -22,28 +22,28 @@ database = firebase.database()
 # Create your views here.
 
 
-def login(request):
-    return render(request, "login.html")
-
-
 def home(request):
     return render(request, "home.html")
 
 
-def postLogin(request):
-    email = request.POST.get('lemail')
-    pasw = request.POST.get('lpass')
-    try:
-        user = auth.sign_in_with_email_and_password(email, pasw)
-    except user.DoesNotExist:
-        message = "Invalid Credentials!!Please ChecK your Data"
-        return render(request, "login.html", {"message": message})
-    session_id = user['idToken']
-    request.session['uid'] = str(session_id)
-    return redirect('/', {"email": email})
+def login(request):
+    if request.method == "GET":
+        return render(request, "login.html")
+
+    if request.method == "POST":
+        email = request.POST.get('lemail')
+        pasw = request.POST.get('lpass')
+        try:
+            user = auth.sign_in_with_email_and_password(email, pasw)
+        except user.DoesNotExist:
+            message = "Invalid Credentials!!Please ChecK your Data"
+            return render(request, "login.html", {"message": message})
+        session_id = user['idToken']
+        request.session['uid'] = str(session_id)
+        return redirect('/', {"email": email})
 
 
-def postSignUp(request):
+def register(request):
     email = request.POST.get('email')
     pasw = request.POST.get('pass')
     name = request.POST.get('name')
@@ -70,13 +70,13 @@ def logout(request):
 def forget(request):
     if request.method == 'GET':
         return render(request, "forget.html")
-    
+
     if request.method == "POST":
         email = request.POST.get('remail')
         try:
             auth.send_password_reset_email(email)
-            message  = "Email para troca de senha enviado com sucesso!"
-            return redirect("/login", {"msg":message})
+            message = "Email para troca de senha enviado com sucesso!"
+            return redirect("/login", {"msg": message})
         except:
-            message  = "Algo deu errado! Cheque se esse é o seu email de cadastro!"
-            return redirect("/forget", {"msg":message})
+            message = "Algo deu errado! Cheque se esse é o seu email de cadastro!"
+            return redirect("/forget", {"msg": message})
