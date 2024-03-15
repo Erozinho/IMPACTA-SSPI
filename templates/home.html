@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block title %} Fazenda Ã  Venda {% endblock %}
 {% block content %}
 {% load static %}
-   
+<p id="sid">{{ sid }}</p>
 {% if message %}
 <script>
     alert('{{ message }}');
@@ -37,5 +37,4 @@
             </div> -->
 
 </body>
-<p id="sid">{{ sid }}</p>
 {% endblock %}
