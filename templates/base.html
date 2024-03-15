@@ -7,34 +7,70 @@
       {% block title %}
       Fazenda À Venda
       {% endblock %}
+      {% load static %}
     </title>
+    <link href="{% static 'base.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  rel="stylesheet" />
   </head>
   <body>
-    <nav style="background-color:#72B944;" class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Fazenda à Venda</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/contact">Contact</a>
-          <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
-          </li>
-        </ul>
+    <header class="header-area">
+      <!-- site-navbar start -->
+      <div class="navbar-area">
+        <div class="container">
+          <nav class="site-navbar">
+            <!-- site logo -->
+            <!-- <a href="#home" class="site-logo">logo</a> -->
+    
+            <!-- site menu/nav -->
+            <ul>
+              <li><a href="#">home</a></li>
+              <li><a href="#">sobre</a></li>
+              <li><a href="#">serviço</a></li>
+              <li><a href="#" id="logout">logout</a></li>
+            </ul>
+    
+            <!-- nav-toggler for mobile version only -->
+            <button class="nav-toggler">
+              <span></span>
+            </button>
+          </nav>
+        </div>
       </div>
-    </nav>
     <div class="container">{% block content %} {% endblock %}</div>
     <footer style="background-color: #262626;">
         <p style="color: white;">© 2024 - Fazenda à Venda. Todos os direitos reservados.</p>
     </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" ></script>
+    <script>
+      // define all UI variable
+      const navToggler = document.querySelector('.nav-toggler');
+      const navMenu = document.querySelector('.site-navbar ul');
+      const navLinks = document.querySelectorAll('.site-navbar a');
+      
+      // load all event listners
+      allEventListners();
+      
+      // functions of all event listners
+      function allEventListners() {
+        // toggler icon click event
+        navToggler.addEventListener('click', togglerClick);
+        // nav links click event
+        navLinks.forEach( elem => elem.addEventListener('click', navLinkClick));
+      }
+      
+      // togglerClick function
+      function togglerClick() {
+        navToggler.classList.toggle('toggler-open');
+        navMenu.classList.toggle('open');
+      }
+      
+      // navLinkClick function
+      function navLinkClick() {
+        if(navMenu.classList.contains('open')) {
+          navToggler.click();
+        }
+      }
+      </script>
   </body>
 </html>
