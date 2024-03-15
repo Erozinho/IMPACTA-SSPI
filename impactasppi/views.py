@@ -51,12 +51,11 @@ def postSignUp(request):
     try:
         user = auth.create_user_with_email_and_password(email, pasw)
     except:
-        messages.info(request, 'Contact request submitted successfully.')
-        message = "a"
+        message = "Dados incorretos/Já Cadastrados!"
         return redirect('/login', {"message": message})
     session_id = user['idToken']
     request.session['uid'] = str(session_id)
-    return render(request, home(), {"email": email})
+    return redirect("/login", {"email": email})
 
 
 def logout(request):
@@ -66,3 +65,18 @@ def logout(request):
     except uid.DoesNotExist:
         pass
     return render(request, "login.html")
+
+
+def forget(request):
+    if request.method == 'GET':
+        return render(request, "forget.html")
+    
+    if request.method == "POST":
+        email = request.POST.get('remail')
+        try:
+            auth.send_password_reset_email(email)
+            message  = "Email para troca de senha enviado com sucesso!"
+            return redirect("/login", {"msg":message})
+        except:
+            message  = "Algo deu errado! Cheque se esse é o seu email de cadastro!"
+            return redirect("/forget", {"msg":message})

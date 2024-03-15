@@ -1,0 +1,54 @@
+{% load static %}
+   
+{% if message %}
+<script>
+    alert('{{ message }}');
+</script>
+{% endif %}
+<head>
+  <link href='{% static "login.css" %}' rel='stylesheet'>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
+</head>
+
+<div class="container">
+
+    <!-- SEÇÃO DE LOGIN -->
+
+    <div class="login-section" id="login-section">
+        <header id="login" onclick="openlogin()">Resetar Senha!</header>
+
+        <div class="social-buttons">
+            <button><i class='bx bxl-google-plus'></i>
+                Entrar com Google
+            </button>
+        </div>
+        <div class="seperator">
+            <div class="line"></div>
+            <p>Ou</p>
+            <div class="line"></div>
+        </div>
+
+        
+        
+        
+        <form action="/forget/" method="post">
+            {% csrf_token %}
+            <input type="email" placeholder="e-mail cadastrado" name="remail" required>
+            <a href="http://127.0.0.1:8000/login">Acesse aqui!</a>
+            <button type="submit" class="btn">Entrar</button>
+        </form>
+
+    </div>
+
+
+
+
+
+
+</div>
+
+
+
+<script src="{% static 'login.js' %}"></script>

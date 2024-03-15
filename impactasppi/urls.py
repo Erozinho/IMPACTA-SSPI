@@ -26,6 +26,7 @@ urlpatterns = [
     path('postSignUp/', views.postSignUp),
     path('logout/', views.logout, name="log"),
     path('postLogin/', views.postLogin),
+    path('forget/', views.forget),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
