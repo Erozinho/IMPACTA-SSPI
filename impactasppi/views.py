@@ -38,11 +38,13 @@ def login(request):
         try:
             user = auth.sign_in_with_email_and_password(email, pasw)
         except:
-            message = "Invalid Credentials!!Please ChecK your Data"
-            return render(request, "login.html", {"message": message})
+            messages.error(request, "Erro! Verifique suas credenciais")
+            return render(request, "login.html")
         session_id = user['idToken']
+        user_id = user['localId']
         request.session['uid'] = str(session_id)
-        return redirect('/', {"sid": str(session_id)})
+        messages.success(request, "Login realizado com!")
+        return redirect('/',{"sid": str(user_id)})
 
 
 def register(request):
@@ -53,11 +55,13 @@ def register(request):
     try:
         user = auth.create_user_with_email_and_password(email, pasw)
     except:
-        message = "Dados incorretos/Já Cadastrados!"
-        return redirect('/login', {"message": message})
+        messages.success(request, "Dados incorretos/Ja Cadastrados.")
+        return redirect('/login', message="TESTE")
     session_id = user['idToken']
-    db.child(str(session_id)).set(name)
+    user_id = user['localId']
+    db.child(str(user_id)).set(name)
     request.session['uid'] = str(session_id)
+    messages.success(request, "Cadastro efetuado com sucesso!")
     return redirect("/login", {"email": email})
 
 
@@ -67,7 +71,8 @@ def logout(request):
         del request.session['uid']
     except uid.DoesNotExist:
         pass
-    return render(request, "login.html")
+    msg = "Logout efetuado com sucesso!"
+    return redirect("/login", {"message": msg})
 
 
 def forget(request):
