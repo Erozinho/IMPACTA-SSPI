@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
       {% block title %}
-      Fazenda À Venda
+      Fazenda A Venda
       {% endblock %}
       {% load static %}
     </title>
@@ -36,7 +36,17 @@
             </button>
           </nav>
         </div>
+        {% if messages %}
+	        {% for message in messages %}
+
+            <div class="alert alert -{{message.tags}}">
+                <strong>Success!</strong>
+            </div>
+
+	        {% endfor %}
+        {% endif %}
       </div>
+    </header>
     <div class="container">{% block content %}{% endblock %}</div>
     <footer style="background-color: #262626;">
         <p style="color: white;">© 2024 - Fazenda à Venda. Todos os direitos reservados.</p>
