@@ -5,6 +5,13 @@
 {% block content %}
 
 <link href='{% static "login.css" %}' rel='stylesheet'>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+<script src="{% static 'login.js' %}"></script>
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
 
 <div class="page-login">
     <div class="container">
@@ -14,7 +21,7 @@
 
             <div class="social-buttons">
                 <button><i class='bx bxl-google-plus'></i>
-                    Use Google
+                    Continuar com Google
                 </button>
             </div>
             <style>
@@ -25,13 +32,13 @@
                 <p>Ou</p>
                 <div class="line"></div>
             </div>
-            <form action="/register/" method="post">
+            <form action="/register/" method="post">{% csrf_token %}
                 <input type="text" placeholder="Nome Completo" name = "name" required>
                 <input type="email" placeholder="Endereço de e-mail" name="email" required>
                 <input type="password" placeholder="Sua senha" name="pass" required>
                 <a href="/forget">Esqueceu sua senha?</a>
 
-                <button type="submit" class="btn">Singup</button>
+                <button type="submit" class="btn">Criar conta</button>
 
 
 
@@ -44,7 +51,7 @@
 
             <div class="social-buttons">
                 <button><i class='bx bxl-google-plus'></i>
-                    Use Google
+                    Continuar com Google
                 </button>
             </div>
             <div class="seperator">
@@ -56,7 +63,7 @@
             
             
             
-            <form action="/login/" method="post">
+            <form action="/login/" method="post">{% csrf_token %}
                 <input type="email" placeholder="Endereço de e-mail" name="lemail" required>
                 <input type="password" placeholder="Senha cadastrada" name="lpass" required>
                 <a href="/forget">Esqueceu sua senha?</a>
@@ -73,5 +80,4 @@
     </div>
 </div>
 
-<script src="{% static 'login.js' %}"></script>
 {% endblock content %}

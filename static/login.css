@@ -10,7 +10,7 @@ a{
 }
 .page-login{
     
-    height: 100vh;
+    height: 640px;
     display: flex;
     align-items: center;
     justify-content: center;
