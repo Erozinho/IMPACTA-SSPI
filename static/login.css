@@ -9,6 +9,7 @@ a{
 
 }
 .page-login{
+    
     height: 100vh;
     display: flex;
     align-items: center;
@@ -114,8 +115,6 @@ opacity: 0.6;
 }
 
 form input{
-    width: 400;
-    height: 40;
     outline: none;
     border: none;
     padding: 10px 15px;
