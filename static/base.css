@@ -59,6 +59,10 @@ body {
   align-items: center;
 }
 
+.logo{
+  color: black;
+}
+
 .page-header ul {
   display: flex;
   order: 1;

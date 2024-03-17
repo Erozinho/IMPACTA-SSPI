@@ -1,78 +1,76 @@
 {% extends "base.html" %}
-{% block content %}
+
 {% load static %}
+
+{% block content %}
+
 <link href='{% static "login.css" %}' rel='stylesheet'>
-<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-<div class="container">
+<div class="page-login">
+    <div class="container">
 
-    <!-- SEÇÃO DE REGISTRO  -->
+        <div class="singup-section" id="singup-section">
+            <header id="singup" onclick="closelogin()">Criar conta</header>
 
-    <div class="singup-section" id="singup-section">
-        <header id="singup" onclick="closelogin()">Registro</header>
+            <div class="social-buttons">
+                <button><i class='bx bxl-google-plus'></i>
+                    Use Google
+                </button>
+            </div>
+            <style>
+                
+            </style>
+            <div class="seperator">
+                <div class="line"></div>
+                <p>Ou</p>
+                <div class="line"></div>
+            </div>
+            <form action="/register/" method="post">
+                <input type="text" placeholder="Nome Completo" name = "name" required>
+                <input type="email" placeholder="Endereço de e-mail" name="email" required>
+                <input type="password" placeholder="Sua senha" name="pass" required>
+                <a href="/forget">Esqueceu sua senha?</a>
 
-        <div class="social-buttons">
-            <button onclick=google_auth><i class='bx bxl-google-plus'></i>
-                Cadastrar com Google
-            </button>
+                <button type="submit" class="btn">Singup</button>
+
+
+
+            </form>
+
         </div>
-        <style>
+
+        <div class="login-section" id="login-section">
+            <header id="login" onclick="openlogin()">Acessar conta</header>
+
+            <div class="social-buttons">
+                <button><i class='bx bxl-google-plus'></i>
+                    Use Google
+                </button>
+            </div>
+            <div class="seperator">
+                <div class="line"></div>
+                <p>Ou</p>
+                <div class="line"></div>
+            </div>
+
             
-        </style>
-        <div class="seperator">
-            <div class="line"></div>
-            <p>Ou</p>
-            <div class="line"></div>
+            
+            
+            <form action="/login/" method="post">
+                <input type="email" placeholder="Endereço de e-mail" name="lemail" required>
+                <input type="password" placeholder="Senha cadastrada" name="lpass" required>
+                <a href="/forget">Esqueceu sua senha?</a>
+                <button type="submit" class="btn">Login</button>
+            </form>
+
         </div>
-        <form action="/register/" method="post">
-            {% csrf_token %}
-            <input type="text" placeholder="Nome Completo" name = "name" required>
-            <input type="email" placeholder="Seu Melhor e-mail!" name="email" required>
-            <input type="password" placeholder="Senha" name="pass" required>
-            <a href="/forget">Esqueceu a senha?</a>
-
-            <button type="submit" class="btn">Registrar</button>
 
 
 
-        </form>
+
+
 
     </div>
-
-    <!-- SEÇÃO DE LOGIN -->
-
-    <div class="login-section" id="login-section">
-        <header id="login" onclick="openlogin()">Entrar</header>
-
-        <div class="social-buttons">
-            <button><i class='bx bxl-google-plus'></i>
-                Entrar com Google
-            </button>
-        </div>
-        <div class="seperator">
-            <div class="line"></div>
-            <p>Ou</p>
-            <div class="line"></div>
-        </div>
-
-        
-        
-        
-        <form action="/login/" method="post">
-            {% csrf_token %}
-            <input type="email" placeholder="e-mail cadastrado" name="lemail" required>
-            <input type="password" placeholder="Senha!" name="lpass" required>
-            <a href="/forget">Esqueceu a senha?</a>
-            <button type="submit" class="btn">Entrar</button>
-        </form>
-
-    </div>
-
-
-
-
-
-
 </div>
 
 <script src="{% static 'login.js' %}"></script>
