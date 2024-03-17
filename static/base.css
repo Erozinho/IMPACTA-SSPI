@@ -100,7 +100,7 @@ body {
   color: var(--main-white-color);
 }
 
-.page-main div {
+/* .page-main div {
   max-width: 500px;
 }
 
@@ -110,7 +110,7 @@ body {
 
 .page-main p + p {
   margin-top: 5px;
-}
+} */
 
 
 /* FOOTER
