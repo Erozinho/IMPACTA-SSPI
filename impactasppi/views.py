@@ -38,7 +38,7 @@ def login(request):
         try:
             user = auth.sign_in_with_email_and_password(email, pasw)
         except:
-            messages.warning(request, "Erro! Verifique suas credenciais")
+            messages.error(request, "Erro! Verifique suas credenciais")
             return render(request, "login.html")
         session_id = user['idToken']
         user_id = user['localId']
