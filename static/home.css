@@ -22,9 +22,9 @@ body{
 #img-fundo{
     float: center;
     position: relative;
-    max-width: 1000%;
+    max-width: 100%;
     height: auto; 
-    display: flex;
+    display: block;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -60,28 +60,4 @@ body{
 #sid{
     visibility: hidden;
     display: none;
-}
-
-.message {
-	border-radius: 10px;
-	box-shadow: 3px 3px 4px 0px rgba(50, 50, 50, 0.75);
-	color: white;
-	margin-bottom: 20px;
-	margin-left: auto;
-	margin-right: auto;
-	padding-bottom: 5px;
-	padding-top: 5px;
-	text-align: center;
-	width: 80%;
-}
-
-/*
- * Give the various message types the correct colors
- */
-.message.success {
-	background-color: green;
-}
-
-.message.error {
-	background-color: red;
 }

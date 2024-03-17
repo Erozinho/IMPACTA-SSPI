@@ -38,7 +38,7 @@ def login(request):
         try:
             user = auth.sign_in_with_email_and_password(email, pasw)
         except:
-            messages.error(request, "Erro! Verifique suas credenciais")
+            messages.warning(request, "Erro! Verifique suas credenciais")
             return render(request, "login.html")
         session_id = user['idToken']
         user_id = user['localId']
@@ -55,7 +55,7 @@ def register(request):
     try:
         user = auth.create_user_with_email_and_password(email, pasw)
     except:
-        messages.success(request, "Dados incorretos/Ja Cadastrados.")
+        messages.warning(request, "Dados incorretos/Ja Cadastrados.")
         return redirect('/login', message="TESTE")
     session_id = user['idToken']
     user_id = user['localId']
@@ -71,8 +71,8 @@ def logout(request):
         del request.session['uid']
     except uid.DoesNotExist:
         pass
-    msg = "Logout efetuado com sucesso!"
-    return redirect("/login", {"message": msg})
+    messages.success(request, "Logout efetuado com sucesso!")
+    return redirect("/login")
 
 
 def forget(request):
@@ -83,8 +83,8 @@ def forget(request):
         email = request.POST.get('remail')
         try:
             auth.send_password_reset_email(email)
-            message = "Email para troca de senha enviado com sucesso!"
-            return redirect("/login", {"msg": message})
+            messages.success(request, "Email para troca de senha enviado com sucesso!")
+            return redirect("/login")
         except:
-            message = "Algo deu errado! Cheque se esse é o seu email de cadastro!"
-            return redirect("/forget", {"msg": message})
+            messages.warning(request, "Email não cadastrado!") 
+            return redirect("/forget")

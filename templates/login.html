@@ -1,6 +1,6 @@
 {% extends "base.html" %}
+{% block content %}
 {% load static %}
-
 <link href='{% static "login.css" %}' rel='stylesheet'>
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
@@ -29,7 +29,7 @@
             <input type="text" placeholder="Nome Completo" name = "name" required>
             <input type="email" placeholder="Seu Melhor e-mail!" name="email" required>
             <input type="password" placeholder="Senha" name="pass" required>
-            <a href="http://127.0.0.1:8000/forget">Esqueceu a senha?</a>
+            <a href="/forget">Esqueceu a senha?</a>
 
             <button type="submit" class="btn">Registrar</button>
 
@@ -62,7 +62,7 @@
             {% csrf_token %}
             <input type="email" placeholder="e-mail cadastrado" name="lemail" required>
             <input type="password" placeholder="Senha!" name="lpass" required>
-            <a href="http://127.0.0.1:8000/forget">Esqueceu a senha?</a>
+            <a href="/forget">Esqueceu a senha?</a>
             <button type="submit" class="btn">Entrar</button>
         </form>
 
@@ -75,7 +75,5 @@
 
 </div>
 
-
-
 <script src="{% static 'login.js' %}"></script>
-{% endblock %}
+{% endblock content %}

@@ -1,173 +1,229 @@
-/* default css start */
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body{
-    font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
-  }
-  .container {
-    width: 100%;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 15px;
-  }
-  .header-area {
-    background-color: #208447;
-    background-position: center center;
-    background-size: cover;
-  }
-  /* default css end */
-  
-  
-  /* navbar regular css start */
-  .navbar-area {
-    background: rgba(0,0,0,.6);
-    border-bottom: 1px solid #000;
-  }
-  .site-navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  a.site-logo {
-    font-size: 26px;
-    font-weight: 800;
-    text-transform: uppercase;
-    color: #fff;
-    text-decoration: none;
-  }
-  .site-navbar ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-  }
-  .site-navbar ul li a {
-    color: #fff;
-    padding: 20px;
-    display: block;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
- 
-  #logout{
-    
+/* Important stuff here! Look at the bottom!!! (Line 133 to 136) */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
 
-  }
-    
-  .site-navbar ul li a:hover {
-    background: rgba(255,255,255,.1);
-  }
-  /* navbar regular css end */
-  
-  
-  /* nav-toggler css start */
-  .nav-toggler {
-    border: 3px solid #fff;
-    padding: 5px;
-    background-color: transparent;
-    cursor: pointer;
-    height: 39px;
-    display: none;
-  }
-  .nav-toggler span, 
-  .nav-toggler span:before, 
-  .nav-toggler span:after {
-    width: 28px;
-    height: 3px;
-    background-color: #fff;
-    display: block;
-    transition: .3s;
-  }
-  .nav-toggler span:before {
-    content: '';
-    transform: translateY(-9px);
-  }
-  .nav-toggler span:after {
-    content: '';
-    transform: translateY(6px);
-  }
-  .nav-toggler.toggler-open span {
-    background-color: transparent;
-  }
-  .nav-toggler.toggler-open span:before {
-    transform: translateY(0px) rotate(45deg);
-  }
-  .nav-toggler.toggler-open span:after {
-    transform: translateY(-3px) rotate(-45deg);
-  }
-  /* nav-toggler css start */
-  
-  
-  /* intro-area css start */
-  .intro-area {
-    height: calc(100vh - 61px);
+:root {
+  --nav-bg: #03000e;
+  --main-clr: dodgerblue;
+  --nav-shadow: 0px 3px var(--main-clr);
+}
+
+nav {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: fixed;
+  width: 100%;
+  background: #03000e;
+  box-shadow: var(--nav-shadow);
+}
+
+nav .logo {
+  color: #fff;
+  text-decoration-color: var(--main-clr);
+  font-size: 22px;
+  font-family: "Playfair Display", serif;
+  font-weight: 100;0px 3px var(--main-clr)
+}
+
+nav ul {
+  --padding: 20px;
+  --font-size: 17px;
+
+  list-style: none;
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size);
+  overflow-y: hidden;
+  transition: 1s cubic-bezier(.68,-0.55,.27,10.55);
+  box-shadow: var(--nav-shadow);
+}
+
+nav ul li {
+  padding: var(--padding);
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+}
+
+nav ul li a::after {
+  content: "";
+  width: 0%;
+  height: 1.7px;
+  border-radius: 99px;
+  background: var(--main-clr);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+nav .menu {
+  width: 22px;
+  height: 16px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  margin: 20px;
+}
+
+nav .menu span {
+  width: 100%;
+  height: 2px;
+  border-radius: 99px;
+  background: #fff;
+  transition: 0.3s ease;
+  transform-origin: left;
+}
+
+nav .menu.active span {
+  background: var(--main-clr);
+}
+
+nav .menu.active span:nth-child(1) {
+  transform: rotate(40deg);
+}
+
+nav .menu span:nth-child(3) {
+  transform-origin: left;
+}
+
+nav .menu.active span:nth-child(3) {
+  transform: rotate(-40deg);
+}
+
+nav .menu.active span:nth-child(2) {
+  transform: scale(0);
+}
+
+@media (max-width: 910px) {
+  nav .menu {
     display: flex;
-    align-items: center;
+  }
+
+  nav ul {
+    --height: 0px;
+
+    flex-direction: column;
+    background: var(--nav-bg);
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 56px;
+    height: var(--height);
+    transition: 1s cubic-bezier(.68,-0.55,.27,1.55);
+  }
+  nav ul.active {
+    --height: calc(
+      (((var(--padding) * 2) + (var(--font-size) * 1.5))) * var(--childenNumber)
+    );
+    /*   (Block Level Padding + The Font Size) * The Number of Children   */
+    
+    
+    transition: 1s ease;
+  }
+
+  nav ul li {
+    width: 100%;
     text-align: center;
-    color: #fff;
   }
-  .intro-area h2 {
-    font-size: 50px;
-    font-weight: 300;
-    line-height: 50px;
-    margin-bottom: 25px;
+  nav ul li a {
+    width: 100%;
+    text-transform: capitalize;
   }
-  .intro-area p {
-    font-size: 18px;
-  }
-  /* intro-area css end */
-  
-  
-  /* mobile breakpoint start */
-  @media screen and (max-width: 767px) {
-    .container {
-      max-width: 720px;
-    }
-    /* navbar css for mobile start */
-    .nav-toggler{
-      display: block;
-    }
-    .site-navbar {
-      min-height: 60px;
-    }
-    .site-navbar ul {
-      position: absolute;
-      width: 100%;
-      height: calc(100vh - 60px);
-      left: 0;
-      top: 60px;
+}
+
+.alertas{
+  z-index: 2;
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+
+body{
+  z-index: 3;
+}
+
+#picassoFooter {
+  z-index: 4;
+  background-color: #272727;
+  color: #ffffff;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer-navigation, .footer-contact, .footer-social {
+  margin: 10px;
+}
+
+.footer-navigation h3, .footer-contact h3, .footer-social h3 {
+  color: #f0f0f0;
+  margin-bottom: 15px;
+}
+
+.footer-navigation ul, .footer-social .social-icons {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-navigation ul li, .social-icon {
+  margin-bottom: 10px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.footer-navigation ul li a, .social-icon {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.social-icon {
+  display: inline-block;
+  padding: 8px;
+  background-color: #333;
+  margin-right: 5px;
+}
+
+.social-icon:hover, .footer-navigation ul li a:hover {
+  transform: scale(1.1);
+}
+
+.footer-art canvas {
+  max-width: 100px;
+  height: auto;
+  margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+  #picassoFooter {
       flex-direction: column;
       align-items: center;
-      border-top: 1px solid #444;
-      background-color: rgba(0,0,0,.75);
-      max-height: 0;
-      overflow: hidden;
-      transition: .3s;
-    }
-    .site-navbar ul li {
-      width: 100%;
-      text-align: center;
-    }
-    .site-navbar ul li a {
-      padding: 25px;
-    }
-    .site-navbar ul li a:hover {
-      background-color: rgba(255,255,255,.1);
-    }
-    .site-navbar ul.open {
-      max-height: 100vh;
-      overflow: visible;
-    }
-    .intro-area h2 {
-      font-size: 36px;
-      margin-bottom: 15px;
-    }  
-    /* navbar css for mobile end */
   }
-  /* mobile breakpoint end */
+
+  .footer-art canvas {
+      max-width: 100%;
+  }
+}
+
+.copyright{
+  text-align: center;
+}
