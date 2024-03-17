@@ -1,229 +1,161 @@
-/* Important stuff here! Look at the bottom!!! (Line 133 to 136) */
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
+@import url("https://fonts.googleapis.com/css?family=Dosis:400,700");
 
 :root {
-  --nav-bg: #03000e;
-  --main-clr: dodgerblue;
-  --nav-shadow: 0px 3px var(--main-clr);
+  --main-white-color: #f2f2f2;
+  --main-black-color: black;
+  --main-purple-color: #9e89b8;
 }
 
-nav {
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  position: fixed;
-  width: 100%;
-  background: #03000e;
-  box-shadow: var(--nav-shadow);
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-nav .logo {
-  color: #fff;
-  text-decoration-color: var(--main-clr);
-  font-size: 22px;
-  font-family: "Playfair Display", serif;
-  font-weight: 100;0px 3px var(--main-clr)
-}
-
-nav ul {
-  --padding: 20px;
-  --font-size: 17px;
-
-  list-style: none;
-  display: flex;
-  align-items: center;
-  font-size: var(--font-size);
-  overflow-y: hidden;
-  transition: 1s cubic-bezier(.68,-0.55,.27,10.55);
-  box-shadow: var(--nav-shadow);
-}
-
-nav ul li {
-  padding: var(--padding);
-}
-
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  position: relative;
-}
-
-nav ul li a::after {
-  content: "";
-  width: 0%;
-  height: 1.7px;
-  border-radius: 99px;
-  background: var(--main-clr);
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  transition: 0.3s ease;
-}
-
-nav ul li a:hover::after {
-  width: 100%;
-}
-
-nav .menu {
-  width: 22px;
-  height: 16px;
+button {
+  background: none;
+  outline: none;
   cursor: pointer;
-  display: none;
-  align-items: center;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  font: 16px/1.5 "Dosis", sans-serif;
+  /*IE FIX*/
+  /*display: flex;
+  flex-direction: column;*/
+}
+
+/* CONTAINER
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.wrapper {
+  display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-  margin: 20px;
+  min-height: 100vh;
 }
 
-nav .menu span {
-  width: 100%;
-  height: 2px;
-  border-radius: 99px;
-  background: #fff;
-  transition: 0.3s ease;
-  transform-origin: left;
-}
-
-nav .menu.active span {
-  background: var(--main-clr);
-}
-
-nav .menu.active span:nth-child(1) {
-  transform: rotate(40deg);
-}
-
-nav .menu span:nth-child(3) {
-  transform-origin: left;
-}
-
-nav .menu.active span:nth-child(3) {
-  transform: rotate(-40deg);
-}
-
-nav .menu.active span:nth-child(2) {
-  transform: scale(0);
-}
-
-@media (max-width: 910px) {
-  nav .menu {
-    display: flex;
-  }
-
-  nav ul {
-    --height: 0px;
-
-    flex-direction: column;
-    background: var(--nav-bg);
-    position: absolute;
-    width: 100%;
-    left: 0;
-    top: 56px;
-    height: var(--height);
-    transition: 1s cubic-bezier(.68,-0.55,.27,1.55);
-  }
-  nav ul.active {
-    --height: calc(
-      (((var(--padding) * 2) + (var(--font-size) * 1.5))) * var(--childenNumber)
-    );
-    /*   (Block Level Padding + The Font Size) * The Number of Children   */
-    
-    
-    transition: 1s ease;
-  }
-
-  nav ul li {
-    width: 100%;
-    text-align: center;
-  }
-  nav ul li a {
-    width: 100%;
-    text-transform: capitalize;
-  }
-}
-
-.alertas{
-  z-index: 2;
-  padding-top: 10%;
-  padding-bottom: 10%;
-}
-
-body{
-  z-index: 3;
-}
-
-#picassoFooter {
-  z-index: 4;
-  background-color: #272727;
-  color: #ffffff;
+.wrapper > * {
   padding: 20px;
+}
+
+
+/* HEADER
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.page-header {
+  background: var(--main-white-color);
+}
+.page-header nav {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  font-family: 'Arial', sans-serif;
 }
 
-.footer-navigation, .footer-contact, .footer-social {
-  margin: 10px;
+.page-header ul {
+  display: flex;
+  order: 1;
+  width: 100%;
+  margin-top: 15px;
 }
 
-.footer-navigation h3, .footer-contact h3, .footer-social h3 {
-  color: #f0f0f0;
-  margin-bottom: 15px;
+.page-header ul li:not(:last-child) {
+  padding-right: 15px;
 }
 
-.footer-navigation ul, .footer-social .social-icons {
-  list-style: none;
-  padding: 0;
+.page-header .cta-contact {
+  font-family: inherit;
+  font-size: 1.2rem;
+  padding: 5px 18px;
+  border: 1px solid;
+  border-radius: 5px;
 }
 
-.footer-navigation ul li, .social-icon {
-  margin-bottom: 10px;
-  transition: transform 0.2s ease-in-out;
+
+/* MAIN
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.page-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+  min-height: 350px;
+  background-color:antiquewhite;
+  /* background: var(--main-purple-color)
+    url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/city.jpg) no-repeat
+    center / cover; */
+  background-blend-mode: luminosity;
+  color: var(--main-white-color);
 }
 
-.footer-navigation ul li a, .social-icon {
-  color: #ffffff;
-  text-decoration: none;
+.page-main div {
+  max-width: 500px;
 }
 
-.social-icon {
-  display: inline-block;
-  padding: 8px;
-  background-color: #333;
-  margin-right: 5px;
+.page-main h1 {
+  margin-bottom: 5px;
 }
 
-.social-icon:hover, .footer-navigation ul li a:hover {
-  transform: scale(1.1);
+.page-main p + p {
+  margin-top: 5px;
 }
 
-.footer-art canvas {
-  max-width: 100px;
-  height: auto;
-  margin-top: 20px;
+
+/* FOOTER
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.page-footer {
+  display: flex;
+  flex-direction: column-reverse;
+  background: var(--main-white-color);
 }
 
-@media (max-width: 600px) {
-  #picassoFooter {
-      flex-direction: column;
-      align-items: center;
+.page-footer ul {
+  display: flex;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.page-footer ul li:not(:last-child) {
+  margin-right: 20px;
+}
+
+
+/* MQ
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media screen and (min-width: 550px) {
+  .page-header ul {
+    width: auto;
+    margin-top: 0;
   }
 
-  .footer-art canvas {
-      max-width: 100%;
+  .page-header .cta-contact {
+    order: 1;
+  }
+
+  .page-footer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .page-footer ul {
+    margin-bottom: 0;
   }
 }
 
-.copyright{
-  text-align: center;
+@media screen and (min-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+
+  .page-main {
+    padding-left: 90px;
+  }
 }

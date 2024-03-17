@@ -10,16 +10,15 @@ a{
 
 }
 body{
-    z-index: 2;
     height: 100vh;
-    display:block;
     align-items: center;
     justify-content: center;
-    font-family: "PeydaWeb SemBd"; 
+    
     background-color: #f0f0f0;
 } 
 
 .container{
+    font-family: "PeydaWeb SemBd"; 
     transition: all 0.5s ease;
     position: relative;
     width: 460px;
@@ -32,6 +31,7 @@ body{
 }
 
 .rcontainer{
+    z-index: 3;
     transition: all 0.5s ease;
     position: relative;
     width: 460px;
