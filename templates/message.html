@@ -4,11 +4,13 @@
 <script type="text/javascript" src="{% static 'message.js' %}"></script>
 <script type="text/javascript" src="jquery-ui-1.8.12.custom.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 {% if messages %}
   <ul class="messages">
     {% for message in messages %}
-    <li onclick="delete_flash(this)"{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }} <strong>X</strong></li>
+    <li onclick="delete_flash(this)" {% if message.tags %} class="{{ message.tags }}" {% endif %}><strong> {{ message }} X</strong></li>
     
     {% endfor %}
   </ul>

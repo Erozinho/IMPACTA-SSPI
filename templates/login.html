@@ -5,7 +5,6 @@
 {% block content %}
 
 <link href='{% static "login.css" %}' rel='stylesheet'>
-<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 <script src="{% static 'login.js' %}"></script>
 
 <div class="page-login">
@@ -15,8 +14,8 @@
             <header id="singup" onclick="closelogin()">Criar conta</header>
 
             <div class="social-buttons">
-                <button><i class='bx bxl-google-plus'></i>
-                    Continuar com Google
+                <button><img class="g-logo" src="{% static 'g_logo.svg' %}">
+                <strong>Continuar com Google</strong>
                 </button>
             </div>
             <style>
@@ -45,8 +44,8 @@
             <header id="login" onclick="openlogin()">Acessar conta</header>
 
             <div class="social-buttons">
-                <button><i class='bx bxl-google-plus'></i>
-                    Continuar com Google
+                <button><img class="g-logo" src="{% static 'g_logo.svg' %}">
+                    <strong>Acessar com Google</strong>
                 </button>
             </div>
             <div class="seperator">
