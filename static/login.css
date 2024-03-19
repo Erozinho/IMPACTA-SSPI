@@ -23,7 +23,7 @@ a{
     height: 640px;
     border-radius: 12px;
     padding: 20px 30px 120px;
-    background-color: #303f9f;
+    background-color: #9e9e9e;
     box-shadow: 0 5px 10px rgba(0, 0, 0,0.1);
     overflow: hidden;
 }
@@ -151,18 +151,30 @@ form .btn{
 }
 
 .singup-section .btn{
-    background-color: #455bf0;
+    transition: 0.5s;
+    transition-timing-function: ease-in-out;
+    background-color: #323232;
     color: #fff;
     border: none;
 
 }
 
+.singup-section .btn:hover{
+    background-color: #ffffff;
+    color: #78af00;
+}
+
 .login-section .btn{
+    transition: 0.5s;
+    transition-timing-function: ease-in-out;
     background-color: #303f9f;
     color: #fff;
     border: none;
 
 }
 
-
+.login-section .btn:hover{
+    background-color: #ffffff;
+    color: #303f9f;
+}
 

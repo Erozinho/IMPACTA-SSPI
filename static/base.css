@@ -82,6 +82,14 @@ body {
   border-radius: 5px;
 }
 
+.cta-contact{
+  transition: 0.3s;
+}
+
+.cta-contact:hover {
+  background-color: #3e8e41;
+  color: white;
+}
 
 /* MAIN
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
