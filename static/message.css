@@ -1,0 +1,27 @@
+.messages {
+    list-style: none;
+    padding: 0;
+    border-radius: 40px;
+}
+
+.messages li {
+    padding: 1em;
+    width: 100%;
+    line-height: 2.0em;
+}
+
+.messages li.info, .messages li.debug {
+    background-color: #d0ebff;
+}
+
+.messages li.success {
+    background-color: #b2f2bb;
+}
+
+.message li.warning {
+    background-color: #ffec99;
+}
+
+.messages li.error {
+    background-color: #b76767;
+}

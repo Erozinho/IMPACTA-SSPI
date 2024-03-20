@@ -3,6 +3,7 @@ from django.shortcuts import redirect
 from django.contrib import messages
 import logging
 import pyrebase
+import sweetify
 
 
 log = logging
@@ -38,11 +39,13 @@ def login(request):
         try:
             user = auth.sign_in_with_email_and_password(email, pasw)
         except:
-            message = "Invalid Credentials!!Please ChecK your Data"
-            return render(request, "login.html", {"message": message})
+            sweetify.warning(request, "Erro! Verifique suas credenciais")
+            return render(request, "login.html")
         session_id = user['idToken']
+        user_id = user['localId']
         request.session['uid'] = str(session_id)
-        return redirect('/', {"sid": str(session_id)})
+        sweetify.success(request, "Login realizado com!")
+        return redirect('/', {"sid": str(user_id)})
 
 
 def register(request):
@@ -53,11 +56,13 @@ def register(request):
     try:
         user = auth.create_user_with_email_and_password(email, pasw)
     except:
-        message = "Dados incorretos/Já Cadastrados!"
-        return redirect('/login', {"message": message})
+        sweetify.warning(request, "Dados incorretos/Ja Cadastrados.")
+        return redirect('/login', message="TESTE")
     session_id = user['idToken']
-    db
+    user_id = user['localId']
+    db.child(str(user_id)).set(name)
     request.session['uid'] = str(session_id)
+    sweetify.success(request, "Cadastro efetuado com sucesso!")
     return redirect("/login", {"email": email})
 
 
@@ -67,7 +72,8 @@ def logout(request):
         del request.session['uid']
     except uid.DoesNotExist:
         pass
-    return render(request, "login.html")
+    sweetify.success(request, "Logout efetuado com sucesso!")
+    return redirect("/login")
 
 
 def forget(request):
@@ -78,8 +84,8 @@ def forget(request):
         email = request.POST.get('remail')
         try:
             auth.send_password_reset_email(email)
-            message = "Email para troca de senha enviado com sucesso!"
-            return redirect("/login", {"msg": message})
+            sweetify.success(request, "Solicitação Enviado!")
+            return redirect("/login")
         except:
-            message = "Algo deu errado! Cheque se esse é o seu email de cadastro!"
-            return redirect("/forget", {"msg": message})
+            sweetify.warning(request, "Email não cadastrado!")
+            return redirect("/forget")

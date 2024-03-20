@@ -1,76 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      {% block title %}
-      Fazenda À Venda
-      {% endblock %}
-      {% load static %}
-    </title>
-    <link href="{% static 'base.css' %}" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  rel="stylesheet" />
-  </head>
-  <body>
-    <header class="header-area">
-      <!-- site-navbar start -->
-      <div class="navbar-area">
-        <div class="container">
-          <nav class="site-navbar">
-            <!-- site logo -->
-            <!-- <a href="#home" class="site-logo">logo</a> -->
-    
-            <!-- site menu/nav -->
-            <ul>
-              <li><a href="#">home</a></li>
-              <li><a href="#">sobre</a></li>
-              <li><a href="#">serviço</a></li>
-              <li><a href="#" id="logout">logout</a></li>
-            </ul>
-    
-            <!-- nav-toggler for mobile version only -->
-            <button class="nav-toggler">
-              <span></span>
-            </button>
-          </nav>
-        </div>
-      </div>
-    <div class="container">{% block content %} {% endblock %}</div>
-    <footer style="background-color: #262626;">
-        <p style="color: white;">© 2024 - Fazenda à Venda. Todos os direitos reservados.</p>
-    </footer>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" ></script>
-    <script>
-      // define all UI variable
-      const navToggler = document.querySelector('.nav-toggler');
-      const navMenu = document.querySelector('.site-navbar ul');
-      const navLinks = document.querySelectorAll('.site-navbar a');
-      
-      // load all event listners
-      allEventListners();
-      
-      // functions of all event listners
-      function allEventListners() {
-        // toggler icon click event
-        navToggler.addEventListener('click', togglerClick);
-        // nav links click event
-        navLinks.forEach( elem => elem.addEventListener('click', navLinkClick));
-      }
-      
-      // togglerClick function
-      function togglerClick() {
-        navToggler.classList.toggle('toggler-open');
-        navMenu.classList.toggle('open');
-      }
-      
-      // navLinkClick function
-      function navLinkClick() {
-        if(navMenu.classList.contains('open')) {
-          navToggler.click();
-        }
-      }
-      </script>
-  </body>
-</html>
+{% load static %}
+{% load sweetify %}
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Fazenda a Venda {% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}"/>
+</head>
+
+<script>function loginredirect() { window.location.href = "/login";} </script>
+<script>function homeredirect() { window.location.href = "/";} </script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.5/sweetalert2.all.min.js"></script>
+
+
+<div class="wrapper">
+  <header class="page-header">
+    <nav>
+      <h2 onclick="homeredirect()" class="logo">LOGO</h2>
+      <ul>
+        <li>
+          <a href="/about">Sobre Nós</a>
+        </li>
+        <li>
+          <a href="/typeofservice">Serviços</a>
+        </li>
+        <li>
+          <a href="/terrenos">Terrenos</a>
+        </li>
+        <li>
+          <a href="/contact">Contatos</a>
+        </li>
+      </ul>
+      <button onclick="loginredirect()" class="cta-contact">Entrar</button>
+    </nav>
+
+  </header>
+
+  <!-- {% include "message.html" %} -->
+
+
+
+  <main class="page-main">
+    {% block content %}
+
+    {% endblock content %}
+  </main>
+  <footer class="page-footer">
+    <small>© Copyright 2024. Todos os direitos reservados.</small>
+    <ul>
+      <li>
+        <a href="" target="_blank">
+          <i class="icon ion-logo-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a href="" target="_blank">
+          <i class="icon ion-logo-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a href="" target="_blank">
+          <i class="icon ion-logo-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a href="" target="_blank">
+          <i class="icon ion-logo-github"></i>
+        </a>
+      </li>
+    </ul>
+  </footer>
+</div>
+
+{% sweetify %}
