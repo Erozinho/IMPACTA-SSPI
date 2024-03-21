@@ -26,7 +26,12 @@ db = firebase.database()
 
 def home(request):
     if request.method == "GET":
-        return render(request, "home.html")
+        user_id = request.session['localID']
+        if user_id in locals():
+            return render(request, "home.html")
+
+        else:
+            return render(request, "home.html")
 
 
 def login(request):
@@ -38,11 +43,13 @@ def login(request):
         pasw = request.POST.get('lpass')
         try:
             user = auth.sign_in_with_email_and_password(email, pasw)
-        except:
+        except Exception as xecpt:
+            print(xecpt)
             sweetify.warning(request, "Erro! Verifique suas credenciais")
             return render(request, "login.html")
         session_id = user['idToken']
         user_id = user['localId']
+        request.session['localID'] = str(user_id)
         request.session['uid'] = str(session_id)
         sweetify.success(request, "Login realizado com!")
         return redirect('/', {"sid": str(user_id)})
@@ -55,7 +62,8 @@ def register(request):
     print(name)
     try:
         user = auth.create_user_with_email_and_password(email, pasw)
-    except:
+    except Exception as xecpt:
+        print(xecpt)
         sweetify.warning(request, "Dados incorretos/Ja Cadastrados.")
         return redirect('/login', message="TESTE")
     session_id = user['idToken']
@@ -86,6 +94,7 @@ def forget(request):
             auth.send_password_reset_email(email)
             sweetify.success(request, "Solicitação Enviado!")
             return redirect("/login")
-        except:
+        except Exception as xecpt:
+            print(xecpt)
             sweetify.warning(request, "Email não cadastrado!")
             return redirect("/forget")
