@@ -3,10 +3,12 @@
 .bg-img{
     height: auto;
     width: 100%;
+    position: relative;
 }
 
 .txt{
     color: black;
     font: 50px/1.5 "Dosis", sans-serif;
     padding-top: 20px;
+    padding-bottom: 0;
 }
