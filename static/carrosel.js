@@ -1,80 +1,77 @@
-var container = document.getElementById('container');
-var slider = document.getElementById('slider');
-var slides = document.getElementsByClassName('slide').length;
-var buttons = document.getElementsByClassName('btn');
+document.addEventListener("DOMContentLoaded", function() {
 
-var currentPosition = 0;
-var currentMargin = 0;
-var slidesPerPage = 0;
-var slidesCount = slides - slidesPerPage;
-var containerWidth = container.offsetWidth;
-var prevKeyActive = false;
-var nextKeyActive = true;
+    var container = document.getElementById('container');
+    var slider = document.getElementById('slider');
+    var slides = document.getElementsByClassName('slide').length;
+    var leftButton = document.getElementById("leftButton");
+    var rightButton = document.getElementById("rightButton");
 
-window.addEventListener("resize", checkWidth);
+    var currentPosition = 0;
+    var currentMargin = 0;
+    var slidesPerPage = 0;
+    var slidesCount = slides - 1; // Reduzir o número de slides para compensar o índice baseado em zero
+    var containerWidth = container.offsetWidth;
 
-function checkWidth() {
-   containerWidth = container.offsetWidth;
-   setParams(containerWidth);
-}
+    window.addEventListener("resize", checkWidth);
 
-function setParams(w) {
-   if (w < 551) {
-       slidesPerPage = 1;
-   } else {
-       if (w < 901) {
-           slidesPerPage = 2;
-       } else {
-           if (w < 1101) {
-               slidesPerPage = 3;
-           } else {
-               slidesPerPage = 4;
-           }
-       }
-   }
-   slidesCount = slides - slidesPerPage;
-   if (currentPosition > slidesCount) {
-       currentPosition -= slidesPerPage;
-   }
-   currentMargin = - currentPosition * (100 / slidesPerPage);
-   slider.style.marginLeft = currentMargin + '%';
-   if (currentPosition > 0) {
-       buttons[0].classList.remove('inactive');
-   }
-   if (currentPosition < slidesCount) {
-       buttons[1].classList.remove('inactive');
-   }
-   if (currentPosition >= slidesCount) {
-       buttons[1].classList.add('inactive');
-   }
-}
+    function checkWidth() {
+        containerWidth = container.offsetWidth;
+        setParams(containerWidth);
+    }
 
-setParams();
+    function setParams(w) {
+        if (w < 551) {
+            slidesPerPage = 1;
+        } else if (w < 901) {
+            slidesPerPage = 2;
+        } else if (w < 1101) {
+            slidesPerPage = 3;
+        } else {
+            slidesPerPage = 4;
+        }
+        
+        slidesCount = Math.ceil(slides / slidesPerPage) - 1;
+        currentPosition = Math.min(currentPosition, slidesCount);
+        currentMargin = -currentPosition * (100 / slidesPerPage) + '%'; // Adicionando % para garantir que a margem seja configurada corretamente
+        slider.style.marginLeft = currentMargin;
+        updateNavButtons();
+    }
 
-function slideRight() {
-   if (currentPosition != 0) {
-       slider.style.marginLeft = currentMargin + (100 / slidesPerPage) + '%';
-       currentMargin += (100 / slidesPerPage);
-       currentPosition--;
-   }
-   if (currentPosition === 0) {
-       buttons[0].classList.add('inactive');
-   }
-   if (currentPosition < slidesCount) {
-       buttons[1].classList.remove('inactive');
-   }
-}
+    setParams();
 
-function slideLeft() {
-   if (currentPosition != slidesCount) {
-       slider.style.marginLeft = currentMargin - (100 / slidesPerPage) + '%';
-       currentMargin -= (100 / slidesPerPage);
-       currentPosition++;
-   }
-   if (currentPosition == slidesCount) {
-       buttons[1].classList.add('inactive');
-   }
-   if (currentPosition > 0) {
-       buttons[0].classList.remove('inactive');
-   }
-}
+    function slideRight() {
+        if (currentPosition < slidesCount) {
+            currentPosition++;
+            currentMargin = -currentPosition * (100 / slidesPerPage) + '%';
+            slider.style.marginLeft = currentMargin;
+        }
+        updateNavButtons();
+    }
+
+    function slideLeft() {
+        if (currentPosition > 0) {
+            currentPosition--;
+            currentMargin = -currentPosition * (100 / slidesPerPage) + '%';
+            slider.style.marginLeft = currentMargin;
+        }
+        updateNavButtons();
+    }
+
+    function updateNavButtons() {
+        if (currentPosition === 0) {
+            leftButton.classList.add('inactive');
+        } else {
+            leftButton.classList.remove('inactive');
+        }
+        
+        if (currentPosition >= slidesCount) {
+            rightButton.classList.add('inactive');
+        } else {
+            rightButton.classList.remove('inactive');
+        }
+    }
+
+    rightButton.addEventListener("click", slideRight);
+    leftButton.addEventListener("click", slideLeft);
+
+});

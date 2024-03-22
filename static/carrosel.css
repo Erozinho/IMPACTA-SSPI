@@ -59,29 +59,52 @@ body {
      box-shadow: 2px 2px 4px 2px white, -2px -2px 4px 2px white;
      display: grid;
      place-items: center;
+     position: relative;
+     overflow: hidden;
  }
  #slider-container #slider .slide span {
      color: white;
      font-size: 60px;
  }
+
+ #slider-container #slider .slide .info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#slider-container #slider .slide .img {
+    width: 100%;
+    height: auto; 
+    display: block; 
+}
+
  @media only screen and (min-width: 1100px) {
-     #slider-container #slider .slide {
-         width: calc(2.5% - 20px);
-     }
- }
- @media only screen and (max-width: 1100px) {
-     #slider-container #slider .slide {
-         width: calc(3.3333333% - 20px);
-     }
- }
- @media only screen and (max-width: 900px) {
-     #slider-container #slider .slide {
-         width: calc(5% - 20px);
-     }
- }
- @media only screen and (max-width: 550px) {
-     #slider-container #slider .slide {
-         width: calc(10% - 20px);
-     }
- }
- 
+    #slider-container #slider .slide {
+        width: calc(4% - 20px);
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    #slider-container #slider .slide {
+        width: calc(4.44444% - 20px); 
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    #slider-container #slider .slide {
+        width: calc(6% - 20px); 
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    #slider-container #slider .slide {
+        width: calc(15% - 20px); 
+    }
+}
+

@@ -6,6 +6,7 @@
 }
 
 .txt{
-    color: red;
+    color: black;
     font: 50px/1.5 "Dosis", sans-serif;
+    padding-top: 20px;
 }

@@ -3,26 +3,29 @@
 {% block content %}
 
 <link href="{% static 'carrosel.css' %}" rel="stylesheet">
-<script src="{% static 'carrosel.js' %}"></script>
+
 
 <body>
 	<div id="container">
 		<div id="slider-container">
-			<span onclick="slideRight()" class="btn"></span>
+			<span id="rightButton" class="btn"></span>
 			<div id="slider">
-				<div class="slide"><span>150x150</span></div>
-				<div class="slide"><span>150x150</span></div>
-				<div class="slide"><span>150x150</span></div>
-				<div class="slide"><span>150x150</span></div>
-				<div class="slide"><span>150x150</span></div>
-				<div class="slide"><span>150x150</span></div>
-				<div class="slide"><span>150x150</span></div>
-				<div class="slide"><span>150x150</span></div>
-				<div class="slide"><span>150x150</span></div>
-				<div class="slide"><span>150x150</span></div>
+				<div class="slide">
+					<img class="img" src="{% static 'imagem1.jpg'%}" alt="imagem1">
+					<p class="info">Valor: $100.000<br>Metragem: 120m²<br>Endereço: Rua Exemplo, 123</p>
+				</div>
+				<div class="slide">
+					<img class="img" src="{% static 'imagem2.jpg'%}" alt="imagem2">
+					<p class="info">Valor: $150.000<br>Metragem: 150m²<br>Endereço: Av. Modelo, 456</p>
+				</div>
+				<div class="slide">
+					<img class="img" src="{% static 'imagem3.jpg'%}" alt="imagem3">
+					<p class="info">Valor: $200.000<br>Metragem: 180m²<br>Endereço: Praça Teste, 789</p>
+				</div>
 			</div>
-			<span onclick="slideLeft()" class="btn"></span>
+			<span id="leftButton" class="btn"></span>
 		</div>
 	</div>
+	<script src="{% static 'carrosel.js' %}"></script>
 </body>
 {% endblock content %}
