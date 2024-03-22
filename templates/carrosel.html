@@ -5,27 +5,21 @@
 <link href="{% static 'carrosel.css' %}" rel="stylesheet">
 
 
-<body>
-	<div id="container">
-		<div id="slider-container">
-			<span id="rightButton" class="btn"></span>
-			<div id="slider">
-				<div class="slide">
-					<img class="img" src="{% static 'imagem1.jpg'%}" alt="imagem1">
-					<p class="info">Valor: $100.000<br>Metragem: 120m²<br>Endereço: Rua Exemplo, 123</p>
-				</div>
-				<div class="slide">
-					<img class="img" src="{% static 'imagem2.jpg'%}" alt="imagem2">
-					<p class="info">Valor: $150.000<br>Metragem: 150m²<br>Endereço: Av. Modelo, 456</p>
-				</div>
-				<div class="slide">
-					<img class="img" src="{% static 'imagem3.jpg'%}" alt="imagem3">
-					<p class="info">Valor: $200.000<br>Metragem: 180m²<br>Endereço: Praça Teste, 789</p>
-				</div>
-			</div>
-			<span id="leftButton" class="btn"></span>
-		</div>
-	</div>
+<div class="container">
+    <div class="carousel-view">
+      <!-- Left Button -->
+      <button id="prev-btn" class="prev-btn"> </button>
+      
+        <!-- List Container -->
+          <div id="item-list" class="item-list">
+              <!-- Items -->
+             <img id="item" class="item" src="image-url"/>
+              <img id="item" class="item" src="image-url"/>
+          </div>
+      
+      <!-- Right Button -->
+          <button id="next-btn" class="next-btn"> </button>
+      </div>
 	<script src="{% static 'carrosel.js' %}"></script>
 </body>
 {% endblock content %}
