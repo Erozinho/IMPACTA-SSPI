@@ -26,11 +26,14 @@ db = firebase.database()
 
 def home(request):
     if request.method == "GET":
-        user_id = request.session['localID']
-        if user_id in locals():
-            return render(request, "home.html")
+        try:
+            user_id = request.session['localID']
+            if user_id in locals():
+                return render(request, "home.html", {"uid": user_id})
 
-        else:
+            else:
+                return render(request, "home.html")
+        except Exception as xptc:
             return render(request, "home.html")
 
 
