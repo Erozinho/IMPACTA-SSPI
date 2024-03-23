@@ -1,0 +1,10 @@
+.info{
+    color: black;
+}
+
+.info-card{
+    background-color: aliceblue;
+    width: 460px;
+    height: 620px;
+    border-radius: 20px;
+}

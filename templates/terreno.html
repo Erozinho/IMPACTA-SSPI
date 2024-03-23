@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<link href="{% static 'terreno.css' %}" rel="stylesheet" type='text/css'>
+
+<div class="info">
+    <div class="info-card">
+      
+        <div class="city-text">
+            <h1>Terreno Modelo 1</h1>
+        </div>
+    
+
+
+        <div class="stats">
+        <ul>
+            <li>
+            <p class="heading">Estado</p>
+            <p class="footing">Goias</p>
+            </li>
+            <li>
+            <p class="heading">Banheiros</p>
+            <p class="footing">4</p>
+            </li>
+            <li>
+            <p class="heading">Preço Total</p>
+            <p class="footing">18,231,987</p>
+            </li>
+        </ul>
+        <button>Fazer proposta</button>
+        </div>
+    </div>
+
+    <div class="bg-img">
+        <img src="{{ img }}"  alt="" />
+    </div>
+</div>
+
+{% endblock content %}

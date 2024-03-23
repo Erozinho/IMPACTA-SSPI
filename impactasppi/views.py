@@ -101,3 +101,21 @@ def forget(request):
             print(xecpt)
             sweetify.warning(request, "Email não cadastrado!")
             return redirect("/forget")
+
+
+def terreno1(request):
+    if request.method == 'GET':
+        image = 'imagem1.jpg'
+        return render(request, 'terreno.html', {"img": image})
+    
+
+def terreno2(request):
+    if request.method == 'GET':
+        image = 'imagem2.jpg'
+        return render(request, 'terreno.html', {"img": image})
+
+
+def terreno3(request):
+    if request.method == 'GET':
+        image = 'imagem3.jpg'
+        return render(request, 'terreno.html', {"img": image})

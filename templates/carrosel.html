@@ -3,7 +3,34 @@
 {% block content %}
 
 <link href="{% static 'carrosel.css' %}" rel="stylesheet">
+<script>function imgredirect1() { window.location.href = "/terreno1/";} </script>
+<script>function imgredirect2() { window.location.href = "/terreno2/";} </script>
+<script>function imgredirect3() { window.location.href = "/terreno3/";} </script>
 
+
+
+
+<body>
+	<div id="container">
+		<div id="slider-container">
+			<span id="rightButton" class="btn"></span>
+			<div id="slider">
+				<div class="slide">
+					<img ondblclick="imgredirect1(this)" class="img" src="{% static 'imagem1.jpg'%}" alt="imagem1">
+					<p class="info">Valor: $100.000<br>Metragem: 120m²<br>Endereço: Rua Exemplo, 123</p>
+				</div>
+				<div class="slide">
+					<img ondblclick="imgredirect2(this)" class="img" src="{% static 'imagem2.jpg'%}" alt="imagem2">
+					<p class="info">Valor: $150.000<br>Metragem: 150m²<br>Endereço: Av. Modelo, 456</p>
+				</div>
+				<div class="slide">
+					<img ondblclick="imgredirect3(this)" class="img" src="{% static 'imagem3.jpg'%}" alt="imagem3">
+					<p class="info">Valor: $200.000<br>Metragem: 180m²<br>Endereço: Praça Teste, 789</p>
+				</div>
+			</div>
+			<span id="leftButton" class="btn"></span>
+		</div>
+	</div>
 <div class="container">
     <div class="carousel-view">
         <button id="prev-btn" class="prev-btn">
