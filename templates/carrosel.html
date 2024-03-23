@@ -3,6 +3,9 @@
 {% block content %}
 
 <link href="{% static 'carrosel.css' %}" rel="stylesheet">
+<script>function terredirect1() { window.location.href = "/terreno1";} </script>
+<script>function terredirect2() { window.location.href = "/terreno2";} </script>
+<script>function terredirect3() { window.location.href = "/terreno3";} </script>
 
 <div class="container">
     <div class="carousel-view">
@@ -13,7 +16,7 @@
         </button>
         <div id="item-list" class="item-list">
             <div class="item-container">
-                <img class="item" src="{% static 'imagem1.jpg'%}" alt="Imagem 1">
+                <img onclick="terredirect1(this)" class="item" src="{% static 'imagem1.jpg'%}" alt="Imagem 1">
                 <div class="item-info">
                     <p>Valor: R$ 1.500.000,00</p>
                     <p>Metragem: 340m²</p>
@@ -21,7 +24,7 @@
                 </div>
             </div>
             <div class="item-container">
-                <img class="item" src="{% static 'imagem2.jpg'%}" alt="Imagem 2">
+                <img onclick="terredirect2(this)" class="item" src="{% static 'imagem2.jpg'%}" alt="Imagem 2">
                 <div class="item-info">
                     <p>Valor: R$ 1.350.000,00</p>
                     <p>Metragem: 300m²</p>
@@ -29,7 +32,7 @@
                 </div>
             </div>
             <div class="item-container">
-                <img class="item" src="{% static 'imagem3.jpg'%}" alt="Imagem 3">
+                <img onclick="terredirect3(this)" class="item" src="{% static 'imagem3.jpg'%}" alt="Imagem 3">
                 <div class="item-info">
                     <p>Valor: R$ 1.000.000,00</p>
                     <p>Metragem: 270m²</p>
