@@ -105,17 +105,17 @@ def forget(request):
 
 def terreno1(request):
     if request.method == 'GET':
-        image = 'imagem1.jpg'
+        image = '/static/imagem1.jpg'
         return render(request, 'terreno.html', {"img": image})
     
 
 def terreno2(request):
     if request.method == 'GET':
-        image = 'imagem2.jpg'
+        image = '/static/imagem2.jpg'
         return render(request, 'terreno.html', {"img": image})
 
 
 def terreno3(request):
     if request.method == 'GET':
-        image = 'imagem3.jpg'
+        image = '/static/imagem3.jpg'
         return render(request, 'terreno.html', {"img": image})
