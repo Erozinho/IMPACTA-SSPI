@@ -3,34 +3,7 @@
 {% block content %}
 
 <link href="{% static 'carrosel.css' %}" rel="stylesheet">
-<script>function imgredirect1() { window.location.href = "/terreno1/";} </script>
-<script>function imgredirect2() { window.location.href = "/terreno2/";} </script>
-<script>function imgredirect3() { window.location.href = "/terreno3/";} </script>
 
-
-
-
-<body>
-	<div id="container">
-		<div id="slider-container">
-			<span id="rightButton" class="btn"></span>
-			<div id="slider">
-				<div class="slide">
-					<img ondblclick="imgredirect1(this)" class="img" src="{% static 'imagem1.jpg'%}" alt="imagem1">
-					<p class="info">Valor: $100.000<br>Metragem: 120m²<br>Endereço: Rua Exemplo, 123</p>
-				</div>
-				<div class="slide">
-					<img ondblclick="imgredirect2(this)" class="img" src="{% static 'imagem2.jpg'%}" alt="imagem2">
-					<p class="info">Valor: $150.000<br>Metragem: 150m²<br>Endereço: Av. Modelo, 456</p>
-				</div>
-				<div class="slide">
-					<img ondblclick="imgredirect3(this)" class="img" src="{% static 'imagem3.jpg'%}" alt="imagem3">
-					<p class="info">Valor: $200.000<br>Metragem: 180m²<br>Endereço: Praça Teste, 789</p>
-				</div>
-			</div>
-			<span id="leftButton" class="btn"></span>
-		</div>
-	</div>
 <div class="container">
     <div class="carousel-view">
         <button id="prev-btn" class="prev-btn">
@@ -42,34 +15,34 @@
             <div class="item-container">
                 <img class="item" src="{% static 'imagem1.jpg'%}" alt="Imagem 1">
                 <div class="item-info">
-                    <p>Valor: R$ 100.000,00</p>
-                    <p>Metragem: 120m²</p>
-                    <p>Endereço: Rua Alfredo, 155 - Vila Antonieta</p>
+                    <p>Valor: R$ 1.500.000,00</p>
+                    <p>Metragem: 340m²</p>
+                    <p>Endereço: Rua Alfredo, 155 - Vila Albertina</p>
                 </div>
             </div>
             <div class="item-container">
                 <img class="item" src="{% static 'imagem2.jpg'%}" alt="Imagem 2">
                 <div class="item-info">
-                    <p>Valor: R$ 120.000,00</p>
-                    <p>Metragem: 140m²</p>
+                    <p>Valor: R$ 1.350.000,00</p>
+                    <p>Metragem: 300m²</p>
                     <p>Endereço: Rua Impacta, 157 - Vila Brasilia</p>
                 </div>
             </div>
             <div class="item-container">
                 <img class="item" src="{% static 'imagem3.jpg'%}" alt="Imagem 3">
                 <div class="item-info">
-                    <p>Valor: R$ 150.000,00</p>
-                    <p>Metragem: 165m²</p>
-                    <p>Endereço: Av. Brasil, 123 - Jardim Japão</p>
+                    <p>Valor: R$ 1.000.000,00</p>
+                    <p>Metragem: 270m²</p>
+                    <p>Endereço: Av. Brasil, 123 - Vila Carioca</p>
                 </div>
             </div> 
-        </div> <!-- Feche a tag div do item-list aqui -->
+        </div>
         <button id="next-btn" class="next-btn"> 
             <svg viewBox="0 0 512 512" width="20" title="chevron-circle-right">
                 <path d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z" />
             </svg>
         </button>
-    </div> <!-- Feche a tag div da carousel-view aqui -->
+    </div>
     <script src="{% static 'carrosel.js' %}"></script>
-</div> <!-- Feche a tag div da container aqui -->
+</div>
 {% endblock content %}
