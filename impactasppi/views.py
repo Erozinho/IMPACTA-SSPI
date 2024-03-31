@@ -119,3 +119,7 @@ def terreno3(request):
     if request.method == 'GET':
         image = '/static/imagem3.jpg'
         return render(request, 'terreno.html', {"img": image})
+    
+def terrenos(request):
+    if request.method == 'GET':
+        return render(request, 'terreno.html')

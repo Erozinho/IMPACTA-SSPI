@@ -29,6 +29,7 @@ urlpatterns = [
     path('terreno1/', views.terreno1, name="terreno1"),
     path('terreno2/', views.terreno2, name="terreno2"),
     path('terreno3/', views.terreno3, name="terreno3"),
+    path('terrenos/', views.terrenos, name="terrenos")
 ]
 
 urlpatterns += staticfiles_urlpatterns()
