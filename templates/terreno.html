@@ -1,187 +1,47 @@
 {% extends "base.html" %}
 
+{% load bootstrap5 %}
+
+{% bootstrap_css %}
+    
+{% bootstrap_javascript %}
+
+
 {% load static %}
 
 {% block content %}
 
-<div class="container">
-    <!-- <div class="well well-sm">
-        <strong>Display</strong>
-        <div class="btn-group">
-            <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
-            </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
-                class="glyphicon glyphicon-th"></span>Grid</a>
-        </div>
-    </div> -->
-    <div id="products" class="row list-group">
-        <div class="item  col-xs-4 col-lg-4">
-            <div class="thumbnail">
-                <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading">
-                        Product title</h4>
-                    <p class="group inner list-group-item-text">
-                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6">
-                            <p class="lead">
-                                $21.000</p>
-                        </div>
-                        <div class="col-xs-12 col-md-6">
-                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- <div class="item  col-xs-4 col-lg-4">
-            <div class="thumbnail">
-                <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading">
-                        Product title</h4>
-                    <p class="group inner list-group-item-text">
-                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6">
-                            <p class="lead">
-                                $21.000</p>
-                        </div>
-                        <div class="col-xs-12 col-md-6">
-                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item  col-xs-4 col-lg-4">
-            <div class="thumbnail">
-                <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading">
-                        Product title</h4>
-                    <p class="group inner list-group-item-text">
-                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6">
-                            <p class="lead">
-                                $21.000</p>
-                        </div>
-                        <div class="col-xs-12 col-md-6">
-                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item  col-xs-4 col-lg-4">
-            <div class="thumbnail">
-                <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading">
-                        Product title</h4>
-                    <p class="group inner list-group-item-text">
-                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6">
-                            <p class="lead">
-                                $21.000</p>
-                        </div>
-                        <div class="col-xs-12 col-md-6">
-                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item  col-xs-4 col-lg-4">
-            <div class="thumbnail">
-                <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading">
-                        Product title</h4>
-                    <p class="group inner list-group-item-text">
-                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6">
-                            <p class="lead">
-                                $21.000</p>
-                        </div>
-                        <div class="col-xs-12 col-md-6">
-                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item  col-xs-4 col-lg-4">
-            <div class="thumbnail">
-                <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading">
-                        Product title</h4>
-                    <p class="group inner list-group-item-text">
-                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6">
-                            <p class="lead">
-                                $21.000</p>
-                        </div>
-                        <div class="col-xs-12 col-md-6">
-                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
+<link href="{% static 'terreno.css' %}" rel="stylesheet" type='text/css'>]
+<script src="{% static 'terreno.js' %}"></script>
+
+<div class="display-list">
+    <div class="item-fazenda">
+        <a href="display-fazenda">
+            <img src="{% static 'imagem1.jpg'%}" alt="fazenda01" width="350" height="250">
+        </a>
+        <h2>Rancho 300m²</h2>
+        <p>Rancho localizado em Goias com área total de 300m²</p>
+        <p>Preço: R$ 1.000.000,00</p>
+        <a href="#" class="btn-comprar">Comprar</a>
+    </div>
+    <div class="item-fazenda">
+        <a href="display-fazenda">
+            <img src="{% static 'imagem2.jpg'%}" alt="fazenda01" width="350" height="250">
+        </a>
+        <h2>Rancho 300m²</h2>
+        <p>Rancho localizado em Goias com área total de 300m²</p>
+        <p>Preço: R$ 1.000.000,00</p>
+        <a href="#" class="btn-comprar">Comprar</a>
+    </div>
+    <div class="item-fazenda">
+        <a href="display-fazenda">
+            <img src="{% static 'imagem3.jpg'%}" alt="fazenda01" width="350" height="250">
+        </a>
+        <h2>Rancho 300m²</h2>
+        <p>Rancho localizado em Goias com área total de 300m²</p>
+        <p>Preço: R$ 1.000.000,00</p>
+        <a href="#" class="btn-comprar">Comprar</a>
     </div>
 </div>
-
-
-
-<!-- <link href="{% static 'terreno.css' %}" rel="stylesheet" type='text/css'>
-
-<div class="info">
-    <div class="info-card">
-      
-        <div class="city-text">
-            <h1>Terreno Modelo 1</h1>
-        </div>
-    
-
-
-        <div class="stats">
-        <ul>
-            <li>
-            <strong>
-            <p class="heading">Estado</p>
-            <p class="footing">Goiás</p>
-            </li>
-            <li>
-            <p class="heading">Tamanho</p>
-            <p class="footing">340 m²</p>
-            </li>
-            <li>
-            <p class="heading">Preço Total</p>
-            <p class="footing">R$ 1.500.000,00</p></strong>
-            </li>
-        
-        </ul>
-        
-        </div>
-
-        <button>Fazer proposta</button>
-    </div>
-
-    <div class="img-container">
-        <img class="bg-img" src="{{ img }}"  alt="" />
-    </div>
-</div> -->
 
 {% endblock content %}

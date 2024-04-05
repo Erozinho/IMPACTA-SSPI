@@ -1,34 +1,34 @@
 @import url("https://fonts.googleapis.com/css?family=Dosis:400,700");
 
 :root {
-  --main-white-color: #f2f2f2;
-  --main-black-color: black;
-  --main-purple-color: #9e89b8;
+  --main-white-color: #f2f2f2 !important;
+  --main-black-color: black !important;
+  --main-purple-color: #9e89b8  !important;
 }
 
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
 }
 
 button {
-  background: none;
-  outline: none;
-  cursor: pointer;
+  background: none !important;
+  outline: none !important;
+  cursor: pointer !important;
 }
 
 ul {
-  list-style: none;
+  list-style: none !important;
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
+  text-decoration: none !important;
+  color: inherit !important;
 }
 
 body {
-  font: 16px/1.5 "Dosis", sans-serif;
+  font: 16px/1.5 "Dosis", sans-serif !important;
   /*IE FIX*/
   /*display: flex;
   flex-direction: column;*/
@@ -37,9 +37,9 @@ body {
 /* CONTAINER
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 100vh !important;
 }
 
 /* .wrapper > * {
@@ -50,63 +50,63 @@ body {
 /* HEADER
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .page-header {
-  background: var(--main-white-color);
-  padding: 20px;
+  background: var(--main-white-color) !important;
+  padding: 20px !important;
 }
 .page-header nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: space-between !important;
+  align-items: center !important;
 }
 
 .logo{
-  color: black;
+  color: black !important;
 }
 
 .page-header ul {
-  display: flex;
-  order: 1;
-  width: 100%;
-  margin-top: 15px;
+  display: flex !important;
+  order: 1 !important;
+  width: 100% !important;
+  margin-top: 15px !important;
 }
 
 .page-header ul li:not(:last-child) {
-  padding-right: 15px;
+  padding-right: 15px !important;
 }
 
 .page-header .cta-contact {
-  font-family: inherit;
-  font-size: 1.2rem;
-  padding: 5px 18px;
-  border: 1px solid;
-  border-radius: 5px;
+  font-family: inherit !important;
+  font-size: 1.2rem !important;
+  padding: 5px 18px !important;
+  border: 1px solid !important;
+  border-radius: 5px !important;
 }
 
 .cta-contact{
-  transition: 0.3s;
+  transition: 0.3s !important;
 }
 
 .cta-contact:hover {
-  background-color: #3e8e41;
-  color: white;
+  background-color: #3e8e41 !important;
+  color: white !important;
 }
 
 /* MAIN
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .page-main {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  flex-grow: 1;
-  min-height: 350px;
-  background-color:antiquewhite;
+  display: flex !important;
+  align-items: center !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  flex-grow: 1 !important;
+  min-height: 350px !important;
+  background-color:antiquewhite !important;
   /* background: var(--main-purple-color)
     url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/city.jpg) no-repeat
     center / cover; */
-  background-blend-mode: luminosity;
-  color: var(--main-white-color);
+  background-blend-mode: luminosity !important;
+  color: var(--main-white-color) !important;
 }
 
 /* .page-main div {
@@ -125,21 +125,21 @@ body {
 /* FOOTER
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .page-footer {
-  display: flex;
-  flex-direction: column-reverse;
-  background: var(--main-white-color);
-  padding: 20px;
-  position: relative;
+  display: flex !important;
+  flex-direction: column-reverse !important;
+  background: var(--main-white-color) !important;
+  padding: 20px !important;
+  position: relative !important;
 }
 
 .page-footer ul {
-  display: flex;
-  font-size: 1.5rem;
-  margin-bottom: 5px;
+  display: flex !important;
+  font-size: 1.5rem !important;
+  margin-bottom: 5px !important;
 }
 
 .page-footer ul li:not(:last-child) {
-  margin-right: 20px;
+  margin-right: 20px !important;
 }
 
 
@@ -147,31 +147,31 @@ body {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 @media screen and (min-width: 550px) {
   .page-header ul {
-    width: auto;
-    margin-top: 0;
+    width: auto !important;
+    margin-top: 0 !important;
   }
 
   .page-header .cta-contact {
-    order: 1;
+    order: 1 !important;
   }
 
   .page-footer {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
   }
 
   .page-footer ul {
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
   }
 }
 
 @media screen and (max-width: 768px) {
   body {
-    font-size: 18px;
+    font-size: 18px !important;
   }
 
   .page-main {
-    padding-left: 90px;
+    padding-left: 90px !important;
   }
 }

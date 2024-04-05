@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sweetify',
-
+    'bootstrap5',
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
