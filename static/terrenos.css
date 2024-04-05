@@ -1,0 +1,32 @@
+*{
+    color: black;
+}
+
+.display-list {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next row if necessary */
+    padding: 0;
+    gap: 50px;
+}
+
+.item-fazenda {
+    flex: auto;
+    max-width:50%; /* Limit item width to avoid overcrowding */
+    margin: 10px; /* Add spacing between items */
+    border: 1px solid #ccc; /* Add a border for visual separation */
+    padding: 10px;
+    text-align: center;
+    display: inline-grid;
+}
+
+/* Style the "Buy Now" button */
+.btn-comprar {
+    display: block;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
