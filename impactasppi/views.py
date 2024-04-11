@@ -4,6 +4,10 @@ from django.contrib import messages
 import logging
 import pyrebase
 import sweetify
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import firestore
+from werkzeug.utils import secure_filename
 
 
 log = logging
@@ -19,7 +23,27 @@ config = {'apiKey': "AIzaSyDTm56zPBOzgblJgsnUHD-qXI7-vXJVfk4",
 
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
-db = firebase.database()
+
+cred = credentials.Certificate("key.json")
+firebase_admin.initialize_app(cred)
+
+db = firestore.client()
+
+
+clientid = "ede3ed94c337f67"
+
+# file = request.files['file']
+# file.save((os.path.join(dir_root, secure_filename(file.filename))))
+# file = os.path.join(dir_root, secure_filename(file.filename))
+
+# print('printado',nome)
+
+# # upando img e apagando temp
+# im = pyimgur.Imgur(clientid)
+# upimg = im.upload_image(file)
+# os.remove(file)
+# db.collection("users").document(session['cpf']).update({"pfp": upimg.link})
+
 
 # Create your views here.
 
@@ -34,6 +58,7 @@ def home(request):
             else:
                 return render(request, "home.html")
         except Exception as xptc:
+            print(xptc)
             return render(request, "home.html")
 
 
