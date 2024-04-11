@@ -93,13 +93,10 @@ def register(request):
     except Exception as xecpt:
         print(xecpt)
         sweetify.warning(request, "Dados incorretos/Ja Cadastrados.")
-        return redirect('/login', message="TESTE")
-    session_id = user['idToken']
-    user_id = user['localId']
-    db.child(str(user_id)).set(name)
-    request.session['uid'] = str(session_id)
+        return redirect('/login')
+    db.collection("usuarios").document(str(email)).set({"Nome": str(name), "email": str(email)})
     sweetify.success(request, "Cadastro efetuado com sucesso!")
-    return redirect("/login", {"email": email})
+    return redirect("/login")
 
 
 def logout(request):
@@ -148,4 +145,6 @@ def terreno3(request):
 
 def terrenos(request):
     if request.method == 'GET':
-        return render(request, 'terreno.html')
+        collection = db.collection("produtos")
+        produtos = collection.get()
+        return render(request, {"produtos": produtos.to_dict()})
