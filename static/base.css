@@ -84,6 +84,7 @@ body {
 }
 
 .cta-contact{
+  color: black;
   transition: 0.3s !important;
 }
 
@@ -102,25 +103,9 @@ body {
   flex-grow: 1 !important;
   min-height: 350px !important;
   background-color:antiquewhite !important;
-  /* background: var(--main-purple-color)
-    url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/city.jpg) no-repeat
-    center / cover; */
   background-blend-mode: luminosity !important;
   color: var(--main-white-color) !important;
 }
-
-/* .page-main div {
-  max-width: 500px;
-}
-
-.page-main h1 {
-  margin-bottom: 5px;
-}
-
-.page-main p + p {
-  margin-top: 5px;
-} */
-
 
 /* FOOTER
 –––––––––––––––––––––––––––––––––––––––––––––––––– */

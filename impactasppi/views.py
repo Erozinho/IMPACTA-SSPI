@@ -90,6 +90,7 @@ def register(request):
     print(name)
     try:
         user = auth.create_user_with_email_and_password(email, pasw)
+        print(f"{user} criado com sucesso.")
     except Exception as xecpt:
         print(xecpt)
         sweetify.warning(request, "Dados incorretos/Ja Cadastrados.")
@@ -147,4 +148,5 @@ def terrenos(request):
     if request.method == 'GET':
         collection = db.collection("produtos")
         produtos = collection.get()
-        return render(request, {"produtos": produtos.to_dict()})
+        ranchos = produtos.to_dict()
+        return render(request, {"produtos": ranchos})
