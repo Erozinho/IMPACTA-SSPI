@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
-from django.contrib import messages
 import logging
 import pyrebase
 import sweetify
@@ -8,6 +7,7 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 from werkzeug.utils import secure_filename
+from google.cloud.firestore_v1.base_query import FieldFilter
 
 
 log = logging
@@ -128,13 +128,19 @@ def forget(request):
 
 def terrenos(request):
     if request.method == 'GET':
-        ranchos = {}
+        ranchos = []
         docs = db.collection("produtos").stream()
         for doc in docs:
-            ranchos[doc.id] = doc.to_dict()
-
-        return render(request, ranchos)
+            ranchos.append(doc.to_dict())
+        return render(request, "terrenos.html", ranchos)
 
 
 def product_detail(request, nome):
-    db.collection("produtos")
+    if request.method == 'GET':
+        rancho = []
+        docs = (db.collection("produtos").
+                where(filter=FieldFilter("nome", "==", nome)).stream())
+
+        for doc in docs:
+            rancho.append(doc.to_dict())
+        return render(request, 'terreno.html', rancho)
