@@ -81,11 +81,11 @@
 {% for nome, valor in propiedades.items %}
   <div class="row">
     <div class="col-12 col-md-6 col-lg-4">
-      <a href="/{{ nome }}/"></a>
+      <a href="/{{ valor.nome }}/"></a>
         <img class="card-img-top" src="https://entremochilasemalinhas.com/wp-content/uploads/2023/01/vista-alegre-destaque.jpg" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title">{{ nome }}</h5>
-          <p class="card-text">TESTE.</p>
+          <h5 class="card-title">{{ valor.nome }}</h5>
+          <p class="card-text">{{ valor.desc }}.</p>
         </div>
     </div>
   </div>
