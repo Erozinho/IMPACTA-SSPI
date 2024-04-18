@@ -6,8 +6,26 @@ import sweetify
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
-from werkzeug.utils import secure_filename
 from google.cloud.firestore_v1.base_query import FieldFilter
+# from django.db import models
+
+
+# class Propiedade(models.Model):
+#     nome = models.CharField(max_length=100)
+#     tipo = models.CharField(max_length=25)
+#     valor = models.DecimalField()
+#     img = models.CharField(max_length=400)
+#     desc = models.CharField(max_length=300)
+
+#     @classmethod
+#     def create(cls, title, tipo, valor, img, desc):
+#         propiedade = cls(title=title,
+#                          tipo=tipo,
+#                          valor=valor,
+#                          img=img,
+#                          desc=desc)
+#         # do something with the book
+#         return propiedade
 
 
 log = logging
@@ -128,19 +146,23 @@ def forget(request):
 
 def terrenos(request):
     if request.method == 'GET':
-        ranchos = []
+        propiedades = {}
         docs = db.collection("produtos").stream()
         for doc in docs:
-            ranchos.append(doc.to_dict())
-        return render(request, "terrenos.html", ranchos)
+            propiedades[doc.id] = doc.to_dict()
+
+        context = {'propiedades': propiedades}
+        return render(request, "terrenos.html", context)
 
 
 def product_detail(request, nome):
     if request.method == 'GET':
-        rancho = []
+        rancho = {}
         docs = (db.collection("produtos").
                 where(filter=FieldFilter("nome", "==", nome)).stream())
 
         for doc in docs:
-            rancho.append(doc.to_dict())
-        return render(request, 'terreno.html', rancho)
+            rancho[doc.id] = doc.to_dict()
+
+        context = {'propiedades': rancho}
+        return render(request, 'terreno.html', context)

@@ -70,23 +70,26 @@
   .list-view .card .card-body {
     display: inline-block;
   }
+
+  .card-body{
+    color: black;
+  }
 </style>
 </head>
 <body>
 <div class="container-grid-container">
-    {% for rancho in ranchos %}
+{% for nome, valor in propiedades.items %}
   <div class="row">
     <div class="col-12 col-md-6 col-lg-4">
-      <a href="{% url rancho['nome']%}"></a>
-        <img class="card-img-top" src="https://picsum.photos/362/180" alt="Card image cap">
+      <a href="/{{ nome }}/"></a>
+        <img class="card-img-top" src="https://entremochilasemalinhas.com/wp-content/uploads/2023/01/vista-alegre-destaque.jpg" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <h5 class="card-title">{{ nome }}</h5>
+          <p class="card-text">TESTE.</p>
         </div>
-      </div>
     </div>
-    {% endfor %}
   </div>
+{% endfor %}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
