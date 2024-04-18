@@ -120,9 +120,11 @@ def register(request):
 
 def logout(request):
     uid = request.session['uid']
+    localID = request.session['localID']
     try:
         del request.session['uid']
-    except uid.DoesNotExist:
+        del request.session['localID']
+    except uid.DoesNotExist or localID.DoesNotExist:
         pass
     sweetify.success(request, "Logout efetuado com sucesso!")
     return redirect("/login")
@@ -166,3 +168,7 @@ def product_detail(request, nome):
 
         context = {'propiedades': rancho}
         return render(request, 'terreno.html', context)
+
+
+def cadastrar_terreno(request):
+    
