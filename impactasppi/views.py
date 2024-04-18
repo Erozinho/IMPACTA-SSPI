@@ -126,27 +126,15 @@ def forget(request):
             return redirect("/forget")
 
 
-def terreno1(request):
-    if request.method == 'GET':
-        image = '/static/imagem1.jpg'
-        return render(request, 'terrenos.html', {"img": image})
-
-
-def terreno2(request):
-    if request.method == 'GET':
-        image = '/static/imagem2.jpg'
-        return render(request, 'terrenos.html', {"img": image})
-
-
-def terreno3(request):
-    if request.method == 'GET':
-        image = '/static/imagem3.jpg'
-        return render(request, 'terrenos.html', {"img": image})
-
-
 def terrenos(request):
     if request.method == 'GET':
-        collection = db.collection("produtos")
-        produtos = collection.get()
-        ranchos = produtos.to_dict()
-        return render(request, {"produtos": ranchos})
+        ranchos = {}
+        docs = db.collection("produtos").stream()
+        for doc in docs:
+            ranchos[doc.id] = doc.to_dict()
+
+        return render(request, ranchos)
+
+
+def product_detail(request, nome):
+    db.collection("produtos")

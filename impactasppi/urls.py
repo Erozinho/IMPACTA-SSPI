@@ -26,10 +26,8 @@ urlpatterns = [
     path("register/", views.register, name="register"),  # type: ignore
     path('logout/', views.logout, name="log"),
     path('forget/', views.forget),  # type: ignore
-    path('terreno1/', views.terreno1, name="terreno1"),
-    path('terreno2/', views.terreno2, name="terreno2"),
-    path('terreno3/', views.terreno3, name="terreno3"),
     path('terrenos/', views.terrenos, name="terrenos")
+    path('<int:pk>/', views.product_detail, name='product_detail'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
