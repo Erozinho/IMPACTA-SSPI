@@ -5,7 +5,7 @@
 
 {% block content %}
 
-<link href="{% static 'terreno.css' %}" rel="stylesheet" type='text/css'>
+<!-- <link href="{% static 'terreno.css' %}" rel="stylesheet" type='text/css'>
 
 <div class="info">
     <div class="info-card">
@@ -41,6 +41,73 @@
     <div class="img-container">
         <img class="bg-img" src="{{ img }}"  alt="" />
     </div>
-</div>
+</div> -->
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css" rel="stylesheet">
+<style>
+
+  .container-grid-container {
+    padding-top: 20px;
+  }
+
+  .card {
+    margin-bottom: 1rem;
+  }
+
+  .list-view .row > [class*='col-'] {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+
+  .list-view .card {
+    flex-direction: column;
+  }
+
+  .list-view .card .card-img-top {
+    width: auto;
+  }
+
+  .list-view .card .card-body {
+    display: inline-block;
+  }
+</style>
+</head>
+<body>
+<div class="container-grid-container">
+    {% for rancho in ranchos %}
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="{% url rancho['nome']%}"></a>
+        <img class="card-img-top" src="https://picsum.photos/362/180" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script>
+  function showList(e) {
+    var $gridCont = $('.grid-container');
+    e.preventDefault();
+    $gridCont.hasClass('list-view') ? $gridCont.removeClass('list-view') : $gridCont.addClass('list-view');
+  }
+
+  function gridList(e) {
+    var $gridCont = $('.grid-container')
+    e.preventDefault();
+    $gridCont.removeClass('list-view');
+  }
+
+  $(document).on('click', '.btn-grid', gridList);
+  $(document).on('click', '.btn-list', showList);
+</script>
+</body>
+
 
 {% endblock content %}
