@@ -26,7 +26,7 @@ urlpatterns = [
     path("register/", views.register, name="register"),  # type: ignore
     path('logout/', views.logout, name="log"),
     path('forget/', views.forget),  # type: ignore
-    path('terrenos/', views.terrenos, name="terrenos")
+    path('terrenos/', views.terrenos, name="terrenos"),
     path('<str:nome>/', views.product_detail, name='product_detail'),
 ]
 
