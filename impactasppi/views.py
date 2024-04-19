@@ -1,26 +1,23 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
-import logging
 import pyrebase
 import sweetify
 import firebase_admin
-from django.contrib import messages
 from firebase_admin import credentials
 from firebase_admin import firestore
 from google.cloud.firestore_v1.base_query import FieldFilter
 
 
-log = logging
-
-
-config = {'apiKey': "AIzaSyDTm56zPBOzgblJgsnUHD-qXI7-vXJVfk4",
-  'authDomain': "impacta--sppi.firebaseapp.com",
-  'databaseURL': "https://impacta--sppi-default-rtdb.firebaseio.com",
-  'projectId': "impacta--sppi",
-  'storageBucket': "impacta--sppi.appspot.com",
-  'messagingSenderId': "700556689434",
-  'appId': "1:700556689434:web:b5347313e1273b19fa91a3",
-  'measurementId': "G-W9XPPBZG1S"}
+config = {
+  "apiKey": "AIzaSyDTm56zPBOzgblJgsnUHD-qXI7-vXJVfk4",
+  "authDomain": "impacta--sppi.firebaseapp.com",
+  "databaseURL": "https://impacta--sppi-default-rtdb.firebaseio.com",
+  "projectId": "impacta--sppi",
+  "storageBucket": "impacta--sppi.appspot.com",
+  "messagingSenderId": "700556689434",
+  "appId": "1:700556689434:web:b5347313e1273b19fa91a3",
+  "measurementId": "G-W9XPPBZG1S"
+}
 
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
