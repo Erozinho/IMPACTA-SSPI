@@ -77,7 +77,7 @@ def login(request):
         except Exception as xecpt:
             print(xecpt)
             sweetify.error(request, "ERRO",
-                             text="Verifique suas credenciais")
+                           text="Verifique suas credenciais")
             return render(request, "login.html")
         session_id = user['idToken']
         user_id = user['localId']
