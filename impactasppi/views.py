@@ -164,7 +164,6 @@ def product_detail(request, nome):
 
 
 def cadastrar_terreno(request):
-<<<<<<< HEAD
     if request.method == "GET":
         return render(request, "cadastrar.html")
     if request.method == "POST":
@@ -187,6 +186,3 @@ def cadastrar_terreno(request):
             sweetify.error(request, "FALHA AO CADASTRAR!",
                            text="Favor checar seus dados de cadastro!")
             return redirect("/cadastrar")
-=======
-    
->>>>>>> aec3f6bc10a81f002d303609e1bd8614eb184249
