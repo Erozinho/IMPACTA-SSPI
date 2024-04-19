@@ -1,8 +1,8 @@
 @import url(https://db.onlinewebfonts.com/c/f8ecf8ba4bdf80a4ba4277a3b2f702b6?family=PeydaWeb+SemBd);
 *{
-    margin: 0 !important; 
-    padding: 0 !important;
-    box-sizing: border-box !important;
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
 }
 
 a{

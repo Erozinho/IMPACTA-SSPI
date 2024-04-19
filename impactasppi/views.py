@@ -4,31 +4,14 @@ import logging
 import pyrebase
 import sweetify
 import firebase_admin
+from django.contrib import messages
 from firebase_admin import credentials
 from firebase_admin import firestore
 from google.cloud.firestore_v1.base_query import FieldFilter
-# from django.db import models
-
-
-# class Propiedade(models.Model):
-#     nome = models.CharField(max_length=100)
-#     tipo = models.CharField(max_length=25)
-#     valor = models.DecimalField()
-#     img = models.CharField(max_length=400)
-#     desc = models.CharField(max_length=300)
-
-#     @classmethod
-#     def create(cls, title, tipo, valor, img, desc):
-#         propiedade = cls(title=title,
-#                          tipo=tipo,
-#                          valor=valor,
-#                          img=img,
-#                          desc=desc)
-#         # do something with the book
-#         return propiedade
 
 
 log = logging
+
 
 config = {'apiKey': "AIzaSyDTm56zPBOzgblJgsnUHD-qXI7-vXJVfk4",
   'authDomain': "impacta--sppi.firebaseapp.com",
@@ -41,6 +24,8 @@ config = {'apiKey': "AIzaSyDTm56zPBOzgblJgsnUHD-qXI7-vXJVfk4",
 
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
+
+storage = firebase.storage()
 
 cred = credentials.Certificate("key.json")
 firebase_admin.initialize_app(cred)
@@ -91,13 +76,15 @@ def login(request):
             user = auth.sign_in_with_email_and_password(email, pasw)
         except Exception as xecpt:
             print(xecpt)
-            sweetify.warning(request, "Erro! Verifique suas credenciais")
+            sweetify.error(request, "ERRO",
+                             text="Verifique suas credenciais")
             return render(request, "login.html")
         session_id = user['idToken']
         user_id = user['localId']
         request.session['localID'] = str(user_id)
         request.session['uid'] = str(session_id)
-        sweetify.success(request, "Login realizado com!")
+        sweetify.success(request, "LOGIN REALIZADO",
+                         text="Login realizado com!")
         return redirect('/', {"sid": str(user_id)})
 
 
@@ -111,10 +98,13 @@ def register(request):
         print(f"{user} criado com sucesso.")
     except Exception as xecpt:
         print(xecpt)
-        sweetify.warning(request, "Dados incorretos/Ja Cadastrados.")
+        sweetify.warning(request, "ERROR",
+                         text="Dados incorretos/Ja Cadastrados.")
         return redirect('/login')
-    db.collection("usuarios").document(str(email)).set({"Nome": str(name), "email": str(email)})
-    sweetify.success(request, "Cadastro efetuado com sucesso!")
+    db.collection("usuarios").document(str(email)).set({"Nome": str(name),
+                                                        "email": str(email)})
+    sweetify.success(request, "CADASTRO REALIZADO",
+                     text="Cadastro efetuado com sucesso!")
     return redirect("/login")
 
 
@@ -124,7 +114,8 @@ def logout(request):
         del request.session['uid']
     except uid.DoesNotExist:
         pass
-    sweetify.success(request, "Logout efetuado com sucesso!")
+    sweetify.success(request, title="DE SAIDA!",
+                     text="Logout efetuado com sucesso!")
     return redirect("/login")
 
 
@@ -136,11 +127,13 @@ def forget(request):
         email = request.POST.get('remail')
         try:
             auth.send_password_reset_email(email)
-            sweetify.success(request, "Solicitação Enviado!")
+            sweetify.success(request, "EMAIL ENVIADO",
+                             text="Solicitação enviado ao seu email!")
             return redirect("/login")
         except Exception as xecpt:
             print(xecpt)
-            sweetify.warning(request, "Email não cadastrado!")
+            sweetify.warning(request, "ERROR",
+                             text="Email não cadastrado!")
             return redirect("/forget")
 
 
@@ -166,3 +159,28 @@ def product_detail(request, nome):
 
         context = {'propiedades': rancho}
         return render(request, 'terreno.html', context)
+
+
+def cadastrar_terreno(request):
+    if request.method == "GET":
+        return render(request, "cadastrar.html")
+    if request.method == "POST":
+        try:
+            desc = request.POST.get('desc')
+            valor = request.POST.get('valor')
+            nome_terreno = request.POST.get('nome_terreno')
+            img_path = request.POST.get('imagem')
+            storage.child("ranchos/").put(img_path)
+            file_path = storage.child(f"ranchos/{img_path}").get_url
+            dados = {"nome": str(nome_terreno),
+                     "desc": str(desc),
+                     "valor": float(valor),
+                     "img": str(file_path)}
+            db.collection("produtos").document(str(nome_terreno)).set(dados)
+            sweetify.success(request, "TERRENO CADASTRADO",
+                             text="Seu terreno foi cadastrado com sucesso!")
+            return redirect("/terrenos")
+        except Exception:
+            sweetify.error(request, "FALHA AO CADASTRAR!",
+                           text="Favor checar seus dados de cadastro!")
+            return redirect("/cadastrar")

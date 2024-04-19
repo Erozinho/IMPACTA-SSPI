@@ -1,15 +1,47 @@
 {% extends "base.html" %}
 
-{% load bootstrap5 %}
-
-{% bootstrap_css %}
-    
-{% bootstrap_javascript %}
-
 {% load static %}
 
 {% block content %}
 
-<h1>TESTE</h1>
+<link href="{% static 'terreno.css' %}" rel="stylesheet" type='text/css'>
+
+{% for nome, valor in propiedades.items %}
+<div class="info">
+    <div class="info-card">
+      
+        <div class="city-text">
+            <h1>{{ valor.nome }}</h1>
+        </div>
+    
+
+        <div class="stats">
+        <ul>
+            <li>
+            <strong>
+            <p class="heading">Estado</p>
+            <p class="footing">Goiás</p>
+            </li>
+            <li>
+            <p class="heading">Tamanho</p>
+            <p class="footing">340 m²</p>
+            </li>
+            <li>
+            <p class="heading">Preço Total</p>
+            <p class="footing">R$ {{ valor.valor }}</p></strong>
+            </li>
+        
+        </ul>
+        
+        </div>
+
+        <button>Fazer proposta</button>
+    </div>
+
+    <div class="img-container">
+        <img class="bg-img" src="{{ valor.img }}"  alt="" />
+    </div>
+</div>
+{% endfor %}
 
 {% endblock content %}
