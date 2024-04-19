@@ -11,7 +11,7 @@
         <div class="cadastro-section">
             <h1>Cadastro de Terrenos</h1>
             <form enctype="multipart/form-data" action="/cadastrar/" method="post">{% csrf_token %}
-                <input type="text" placeholder="Nome" id="nome" name="nome" required><br><br>
+                <input type="text" placeholder="Nome da propriedade" id="nome" name="nome" required><br><br>
 
                 <select id="estado" name="estado" required>
                     <option value="" disabled selected>Selecione um Estado</option>
@@ -46,7 +46,10 @@
 
                 <input type="number" placeholder="Valor" id="preco" name="preco" required><br><br>
 
-                <input type="number" placeholder="Metragem" id="metragem" name="metragem" required><br>
+                <input type="number" placeholder="Metragem" id="metragem" name="metragem" required><br><br>
+
+                <input type="text" placeholder="Descreva sua propriedade" id="descricao" name="descricao" required><br>
+                
                 <div class="seperator">
                     <div class="line"></div>
                     <p>Foto:</p>
