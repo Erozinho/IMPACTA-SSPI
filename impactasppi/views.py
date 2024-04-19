@@ -1,26 +1,23 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
-import logging
 import pyrebase
 import sweetify
 import firebase_admin
-from django.contrib import messages
 from firebase_admin import credentials
 from firebase_admin import firestore
 from google.cloud.firestore_v1.base_query import FieldFilter
 
 
-log = logging
-
-
-config = {'apiKey': "AIzaSyDTm56zPBOzgblJgsnUHD-qXI7-vXJVfk4",
-  'authDomain': "impacta--sppi.firebaseapp.com",
-  'databaseURL': "https://impacta--sppi-default-rtdb.firebaseio.com",
-  'projectId': "impacta--sppi",
-  'storageBucket': "impacta--sppi.appspot.com",
-  'messagingSenderId': "700556689434",
-  'appId': "1:700556689434:web:b5347313e1273b19fa91a3",
-  'measurementId': "G-W9XPPBZG1S"}
+config = {
+  "apiKey": "AIzaSyDTm56zPBOzgblJgsnUHD-qXI7-vXJVfk4",
+  "authDomain": "impacta--sppi.firebaseapp.com",
+  "databaseURL": "https://impacta--sppi-default-rtdb.firebaseio.com",
+  "projectId": "impacta--sppi",
+  "storageBucket": "impacta--sppi.appspot.com",
+  "messagingSenderId": "700556689434",
+  "appId": "1:700556689434:web:b5347313e1273b19fa91a3",
+  "measurementId": "G-W9XPPBZG1S"
+}
 
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
@@ -77,7 +74,7 @@ def login(request):
         except Exception as xecpt:
             print(xecpt)
             sweetify.error(request, "ERRO",
-                             text="Verifique suas credenciais")
+                           text="Verifique suas credenciais")
             return render(request, "login.html")
         session_id = user['idToken']
         user_id = user['localId']
@@ -170,15 +167,15 @@ def cadastrar_terreno(request):
         try:
             desc = request.POST.get('desc')
             valor = request.POST.get('valor')
-            nome_terreno = request.POST.get('nome_terreno')
+            nome = request.POST.get('nome_terreno')
             img_path = request.POST.get('imagem')
-            storage.child("ranchos/").put(img_path)
-            file_path = storage.child(f"ranchos/{img_path}").get_url
-            dados = {"nome": str(nome_terreno),
+            storage.child(f"ranchos/{nome}.png").put(img_path)
+            file_path = storage.child(f"ranchos/{img_path}.png").get_url(None)
+            dados = {"nome": str(nome),
                      "desc": str(desc),
                      "valor": float(valor),
                      "img": str(file_path)}
-            db.collection("produtos").document(str(nome_terreno)).set(dados)
+            db.collection("produtos").document(str(nome)).set(dados)
             sweetify.success(request, "TERRENO CADASTRADO",
                              text="Seu terreno foi cadastrado com sucesso!")
             return redirect("/terrenos")
