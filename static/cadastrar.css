@@ -1,7 +1,7 @@
 @import url(https://db.onlinewebfonts.com/c/f8ecf8ba4bdf80a4ba4277a3b2f702b6?family=PeydaWeb+SemBd);
 *{
-    padding: 0 !important;
-    box-sizing: border-box !important;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -108,4 +108,20 @@ form select{
 
 #btn-cadastrar{
     margin-top: 90px;
+}
+
+.seperator{
+    margin-top: 20px !important;
+    display: flex !important;
+    gap: 20px !important;
+    align-items: center !important;
+}
+.seperator .line{
+    width: 100% !important;
+    height: 1px !important;
+    background-color: #ccc !important;
+}
+
+.seperator p {
+    color: #fff !important;
 }

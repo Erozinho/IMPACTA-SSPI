@@ -5,8 +5,13 @@ import sweetify
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
+from werkzeug.utils import secure_filename
 from google.cloud.firestore_v1.base_query import FieldFilter
+from django.core.files.storage import FileSystemStorage
+import os
 
+user = os.path.expanduser('~')
+dir_root = user + '\\Downloads'
 
 config = {
   "apiKey": "AIzaSyDTm56zPBOzgblJgsnUHD-qXI7-vXJVfk4",
@@ -28,21 +33,6 @@ cred = credentials.Certificate("key.json")
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()
-
-
-clientid = "ede3ed94c337f67"
-
-# file = request.files['file']
-# file.save((os.path.join(dir_root, secure_filename(file.filename))))
-# file = os.path.join(dir_root, secure_filename(file.filename))
-
-# print('printado',nome)
-
-# # upando img e apagando temp
-# im = pyimgur.Imgur(clientid)
-# upimg = im.upload_image(file)
-# os.remove(file)
-# db.collection("users").document(session['cpf']).update({"pfp": upimg.link})
 
 
 # Create your views here.
@@ -166,20 +156,32 @@ def cadastrar_terreno(request):
     if request.method == "POST":
         try:
             desc = request.POST.get('desc')
-            valor = request.POST.get('valor')
-            nome = request.POST.get('nome_terreno')
-            img_path = request.POST.get('imagem')
-            storage.child(f"ranchos/{nome}.png").put(img_path)
-            file_path = storage.child(f"ranchos/{img_path}.png").get_url(None)
+            estado = request.POST.get('estado')
+            metro = request.POST.get('metragem')
+            valor = request.POST.get('preco')
+            nome = request.POST.get('nome')
+            img_file = request.FILES['foto']
+
+            fs = FileSystemStorage()
+            filename = fs.save(img_file.name, img_file)
+            file_url = fs.path(filename)
+            print('absolute file path', file_url)
+
+            storage.child(f"ranchos/{nome}").put(file_url)
+            file_path = storage.child(f"ranchos/{nome}").get_url(None)
             dados = {"nome": str(nome),
+                     "metro": str(metro),
                      "desc": str(desc),
+                     "estado": str(estado),
                      "valor": float(valor),
                      "img": str(file_path)}
             db.collection("produtos").document(str(nome)).set(dados)
+            os.remove(file_url)
             sweetify.success(request, "TERRENO CADASTRADO",
                              text="Seu terreno foi cadastrado com sucesso!")
             return redirect("/terrenos")
-        except Exception:
+        except Exception as xptc:
+            print(xptc)
             sweetify.error(request, "FALHA AO CADASTRAR!",
                            text="Favor checar seus dados de cadastro!")
             return redirect("/cadastrar")
