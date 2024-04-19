@@ -170,15 +170,15 @@ def cadastrar_terreno(request):
         try:
             desc = request.POST.get('desc')
             valor = request.POST.get('valor')
-            nome_terreno = request.POST.get('nome_terreno')
+            nome = request.POST.get('nome_terreno')
             img_path = request.POST.get('imagem')
-            storage.child("ranchos/").put(img_path)
-            file_path = storage.child(f"ranchos/{img_path}").get_url
-            dados = {"nome": str(nome_terreno),
+            storage.child(f"ranchos/{nome}.png").put(img_path)
+            file_path = storage.child(f"ranchos/{img_path}.png").get_url(None)
+            dados = {"nome": str(nome),
                      "desc": str(desc),
                      "valor": float(valor),
                      "img": str(file_path)}
-            db.collection("produtos").document(str(nome_terreno)).set(dados)
+            db.collection("produtos").document(str(nome)).set(dados)
             sweetify.success(request, "TERRENO CADASTRADO",
                              text="Seu terreno foi cadastrado com sucesso!")
             return redirect("/terrenos")
