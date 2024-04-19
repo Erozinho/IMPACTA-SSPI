@@ -4,12 +4,54 @@
 
 {% block content %}
 
-<style>
-    h1, h2{
-        color: #000;
-    }
-</style>
-<h1>OLA SENHORITA 🤝.</h1>
-<h2>VC É DO JOB????? 🤨</h2>
+<link href="{% static 'cadastrar.css' %}" rel="stylesheet">
+
+<div class="page-cadastro">
+    <div class="container-cadastro">
+        <div class="cadastro-section">
+            <form>
+                <h1>Cadastro de Terrenos</h1>
+                <input type="text" placeholder="Nome" id="nome" name="nome" required><br><br>
+
+                <select placeholder="Estado" id="estado" name="estado" required>
+                    <option value=""></option>
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                </select><br><br>
+
+                <input type="number" placeholder="Valor" id="preco" name="preco" required><br><br>
+
+                <input type="number" placeholder="Metragem" id="metragem" name="metragem" required><br><br>
+
+                <input type="submit" value="Cadastrar Imóvel">
+            </form>
+        </div>
+    </div>
+</div>
 
 {% endblock content %}
