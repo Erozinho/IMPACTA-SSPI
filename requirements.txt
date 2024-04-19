@@ -1,0 +1,4 @@
+Django==4.2.11
+firebase_admin==6.2.0
+Pyrebase4==4.7.1
+sweetify==2.3.1
