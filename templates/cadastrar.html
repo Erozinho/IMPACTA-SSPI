@@ -9,12 +9,12 @@
 <div class="page-cadastro">
     <div class="container-cadastro">
         <div class="cadastro-section">
-            <form>
-                <h1>Cadastro de Terrenos</h1>
+            <h1>Cadastro de Terrenos</h1>
+            <form method="post">
                 <input type="text" placeholder="Nome" id="nome" name="nome" required><br><br>
 
-                <select placeholder="Estado" id="estado" name="estado" required>
-                    <option value=""></option>
+                <select id="estado" name="estado" required>
+                    <option value="" disabled selected>Selecione um Estado</option>
                     <option value="AC">Acre</option>
                     <option value="AL">Alagoas</option>
                     <option value="AP">Amapá</option>
@@ -48,7 +48,9 @@
 
                 <input type="number" placeholder="Metragem" id="metragem" name="metragem" required><br><br>
 
-                <input type="submit" value="Cadastrar Imóvel">
+                <input type="file" id="foto" name="foto" accept="image/*" required><br><br>
+
+                <input type="submit" id="btn-cadastrar" value="Cadastrar Imóvel">
             </form>
         </div>
     </div>

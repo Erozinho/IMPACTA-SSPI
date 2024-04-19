@@ -1,6 +1,5 @@
 @import url(https://db.onlinewebfonts.com/c/f8ecf8ba4bdf80a4ba4277a3b2f702b6?family=PeydaWeb+SemBd);
 *{
-    margin: 0 !important; 
     padding: 0 !important;
     box-sizing: border-box !important;
 }
@@ -11,8 +10,15 @@ body {
     padding: 0;
 }
 h1 {
-    text-align: center;
-    margin-top: 30px;
+    margin-top: 30px !important;
+    margin-bottom: 40px;
+    border: none !important;
+    border-radius: 8px !important;
+    font-size: 40px !important;
+    cursor: pointer !important;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #9e9e9e !important;
 }
 
 label {
@@ -38,6 +44,10 @@ input[type="submit"]:hover {
     background-color: #45a049;
 }
 
+::placeholder{
+    color: rgb(63, 58, 58);
+}
+
 .page-cadastro{
     height: 640px !important;
     display: flex !important;
@@ -47,15 +57,16 @@ input[type="submit"]:hover {
 }
 
 .container-cadastro{
-    transition: all 0.5s ease !important;
-    position: relative !important;
     width: 460px !important;
     height: 640px !important;
     border-radius: 12px !important;
     padding: 20px 30px 120px !important;
     background-color: #9e9e9e !important;
     box-shadow: 0 5px 10px rgba(0, 0, 0,0.1) !important;
-    overflow: hidden !important;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .cadastro-section{
@@ -81,7 +92,6 @@ form input{
     padding: 10px 15px !important;
     font-size: 16px !important;
     color: #333 !important;
-    font-weight: 400px !important;
     border-radius: 8px !important;
     background: #fff !important;
 }
@@ -93,4 +103,9 @@ form select{
     color: #333 !important;
     border-radius: 8px !important;
     background: #fff !important;
+    width: 100%;
+}
+
+#btn-cadastrar{
+    margin-top: 90px;
 }
