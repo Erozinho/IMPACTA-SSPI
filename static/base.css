@@ -93,6 +93,10 @@ body {
   color: white !important;
 }
 
+#btn-cadastrar{
+  display: none;
+}
+
 /* MAIN
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .page-main {

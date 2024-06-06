@@ -73,6 +73,7 @@ def login(request):
         sweetify.success(request, "LOGIN REALIZADO",
                          text="Login realizado com!")
         return redirect('/', {"sid": str(user_id)})
+        
 
 
 def register(request):
@@ -130,6 +131,16 @@ def terrenos(request):
     if request.method == 'GET':
         propiedades = {}
         docs = db.collection("produtos").stream()
+        for doc in docs:
+            propiedades[doc.id] = doc.to_dict()
+
+        context = {'propiedades': propiedades}
+        return render(request, "terrenos.html", context)
+    else:
+        estado = request.POST.get('estado')
+        metro = request.POST.get('metragem')
+        propiedades = {}
+        docs = db.collection("produtos").where(filter=FieldFilter("estado", "==", True)).stream()
         for doc in docs:
             propiedades[doc.id] = doc.to_dict()
 
