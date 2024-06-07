@@ -30,3 +30,72 @@
     border-radius: 5px;
 }
 
+.container-grid-container {
+    padding-top: 20px;
+  }
+
+  .card {
+    margin-bottom: 1rem;
+  } 
+
+  .list-view .row > [class*='col-'] {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+
+  .list-view .card {
+    flex-direction: column;
+  }
+
+  .list-view .card .card-img-top {
+    width: auto;
+  }
+
+  .list-view .card .card-body {
+    display: inline-block;
+  }
+
+  .card-body{
+    color: black;
+  }
+
+/* _______________________________________________ */
+
+  .container-filtro {
+    display: flex;
+    align-items: center;
+    margin-left: 1100px;
+    color: black;
+  }
+
+  #estados {
+    display: flex;
+    align-items: center;
+  }
+
+  #estados label {
+    margin-top: 5px;
+    margin-right: 3px;
+  }
+
+  
+  .slider {
+    width: 150px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  
+  #metragem {
+    margin-left: 15px; 
+    display: flex;
+    align-items: center;
+  }
+
+  
+  #metragem label {
+    margin-top: 8px;
+  }
+
+  #botao-filtro {
+    margin-left: 10px; 
+  }

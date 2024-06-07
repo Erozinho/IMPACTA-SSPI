@@ -1,10 +1,19 @@
 @import url("https://fonts.googleapis.com/css?family=Dosis:400,700");
 
-.bg-img{
-    height: auto;
+#img {
+    height: 82vh;
     width: 100%;
-    position: relative;
+    position: relative; 
+    overflow: hidden; 
+}
 
+.bg-img {
+    position: absolute;
+    inset: 50%;
+    width: 100%; 
+    height: auto; 
+    transform: translate(-50%, -50%); 
+    object-fit: cover; 
 }
 
 .txt{
@@ -12,4 +21,13 @@
     font: 50px/1.5 "Dosis", sans-serif;
     padding-top: 20px;
     padding-bottom: 0;
+}
+
+.line {
+    width: 40%; /* Ajusta a largura da linha conforme necessário */
+    height: 2px;
+    background: linear-gradient(to right, transparent, black, transparent);
+    position: absolute;
+    bottom: -5px; /* Ajusta a posição da linha em relação ao h1 */
+    left: 30%; /* Ajusta o posicionamento horizontal da linha */
 }

@@ -15,6 +15,7 @@ align-items: center;
 background-color:antiquewhite;
 }
 
+
 .carousel-view {
 display: flex;
 justify-content: space-between;
@@ -59,6 +60,7 @@ min-width: 620px;
 height: 400px;
 background-color: deeppink;
 border-radius:8px;
+box-shadow: 0px 3px 5px black;
 }
 
 .item-container {

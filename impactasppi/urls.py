@@ -28,7 +28,7 @@ urlpatterns = [
     path('forget/', views.forget),  # type: ignore
     path('terrenos/', views.terrenos, name="terrenos"),
     path('cadastrar/', views.cadastrar_terreno, name='cadastrar'),
-    path('<str:nome>/', views.product_detail, name='product_detail'),
+    path('terrenos/<str:nome>/', views.product_detail, name='product_detail'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
