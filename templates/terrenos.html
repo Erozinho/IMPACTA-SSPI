@@ -5,7 +5,6 @@
 
 {% block content %}
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css" rel="stylesheet">
 <link href="{% static 'terrenos.css' %}" rel="stylesheet">
 
 
@@ -57,7 +56,7 @@
 <div class="container-grid-container">
 {% for nome, valor in propiedades.items %}
   <div class="row">
-    <div class="col-12 col-md-6 col-lg-4">
+    <div class="card">
       <a href="/terrenos/{{ valor.nome }}/">
         <img class="card-img-top" src="{{ valor.img }}" alt="Card image cap">
         <div class="card-body">
@@ -71,9 +70,6 @@
 
 {% endfor %}
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script>
   function showList(e) {
     var $gridCont = $('.grid-container');

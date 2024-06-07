@@ -1,101 +1,69 @@
-*{
-    color: black;
-}
-
-.display-list {
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap to the next row if necessary */
-    padding: 0;
-    gap: 50px;
-}
-
-.item-fazenda {
-    flex: auto;
-    max-width:50%; /* Limit item width to avoid overcrowding */
-    margin: 10px; /* Add spacing between items */
-    border: 1px solid #ccc; /* Add a border for visual separation */
-    padding: 10px;
-    text-align: center;
-    display: inline-grid;
-}
-
-/* Style the "Buy Now" button */
-.btn-comprar {
-    display: block;
-    margin-top: 10px;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
 .container-grid-container {
-    padding-top: 20px;
-  }
-
-  .card {
-    margin-bottom: 1rem;
-  } 
-
-  .list-view .row > [class*='col-'] {
-    max-width: 100%;
-    flex: 0 0 100%;
-  }
-
-  .list-view .card {
+    display: flex;
     flex-direction: column;
+    justify-content: left !important;
+    padding-right: 50%;
   }
 
-  .list-view .card .card-img-top {
-    width: auto;
+  .card{
+    border: 2px solid black;
+    border-radius: 10px;
   }
 
   .list-view .card .card-body {
-    display: inline-block;
+    display: inline-block !important;
   }
 
   .card-body{
-    color: black;
+    color: black !important;
+  }
+
+  .card-img-top{
+    width: 612px !important;
+    height: 408 !important;
+  }
+
+  .row{
+    padding-bottom: 40px;
   }
 
 /* _______________________________________________ */
 
   .container-filtro {
-    display: flex;
-    align-items: center;
-    margin-left: 1100px;
-    color: black;
+    display: flex !important;
+    align-items: center !important;
+    margin-left: 1100px !important;
+    color: black !important;
   }
 
   #estados {
-    display: flex;
-    align-items: center;
+    display: flex !important;
+    align-items: center !important;
   }
 
   #estados label {
-    margin-top: 5px;
-    margin-right: 3px;
+    margin-top: 5px !important;
+    margin-right: 3px !important;
   }
 
   
   .slider {
-    width: 150px;
-    margin-left: 5px;
-    margin-right: 5px;
+    width: 150px !important;
+    margin-left: 5px !important;
+    margin-right: 5px !important;
   }
   
   #metragem {
-    margin-left: 15px; 
-    display: flex;
-    align-items: center;
+    margin-left: 15px !important; 
+    display: flex !important;
+    align-items: center !important;
   }
 
   
   #metragem label {
-    margin-top: 8px;
+    margin-top: 8px !important;
   }
 
   #botao-filtro {
-    margin-left: 10px; 
+    margin-left: 10px !important; 
   }

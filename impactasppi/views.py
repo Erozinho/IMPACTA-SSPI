@@ -143,6 +143,8 @@ def terrenos(request):
         print(estado, metro)
         if estado is not None:
             docs = db.collection("produtos").where(filter=FieldFilter("estado", "==", estado)).stream()
+        elif metro is not None and estado is None:
+            docs = db.collection("produtos").where("metragem", "<=", metro + margem_erro).stream()
         elif estado is not None and metro is not None:
             docs = db.collection("produtos").where("estado", "==", estado).where("metragem", "<=", metro + margem_erro).stream()
         else:

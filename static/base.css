@@ -93,6 +93,11 @@ body {
   color: white !important;
 }
 
+.cadastro{
+  display: none !important; 
+}
+
+
 /* MAIN
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .page-main {
