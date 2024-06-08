@@ -93,8 +93,8 @@ body {
   color: white !important;
 }
 
-.cadastro{
-  display: none !important; 
+#cadastro{
+  display: none; 
 }
 
 
@@ -164,6 +164,10 @@ body {
   .page-main {
     padding-left: 90px !important;
   }
+}
+
+#sid{
+  display: none;
 }
 
 /* ----------------------------------------- */
