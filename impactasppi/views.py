@@ -140,15 +140,17 @@ def terrenos(request):
         return render(request, "terrenos.html", context)
     else:
         estado = request.POST.get('state')
-        metro = request.POST.get('metro')
+        metro = float(request.POST.get('metro'))
+        if metro == 1500:
+            metro = None
         propiedades = {}
         print(estado, metro)
         if estado is not None:
             docs = db.collection("produtos").where(filter=FieldFilter("estado", "==", estado)).stream()
         elif metro is not None:
-            docs = db.collection("produtos").where("metragem", "<=", metro).stream()
+            docs = db.collection("produtos").where(filter=FieldFilter("metro", "<=", float(metro))).stream()
         elif estado is not None and metro is not None:
-            docs = db.collection("produtos").where("estado", "==", estado).where("metragem", "<=", metro).stream()
+            docs = db.collection("produtos").where(filter=FieldFilter("estado", "==", estado)).where(filter=FieldFilter("metro", "<=", float(metro))).stream()
         else:
             docs = db.collection("produtos").stream()
         for doc in docs:
@@ -191,7 +193,7 @@ def cadastrar_terreno(request):
             storage.child(f"ranchos/{nome}").put(file_url)
             file_path = storage.child(f"ranchos/{nome}").get_url(None)
             dados = {"nome": str(nome),
-                     "metro": str(metro),
+                     "metro": float(metro),
                      "desc": str(desc),
                      "estado": str(estado),
                      "valor": float(valor),
