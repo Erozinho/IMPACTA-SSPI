@@ -77,9 +77,10 @@
   #botao-filtro {
     margin-top: 2px !important;
     margin-left: 8px !important;
-    background: #99bf67 !important;
-    background: linear-gradient(0deg, #99bf67 0%, #dfffbc 100%) !important;
-    border: 1px solid #A4C97A;
+    background-color: #faebd7 !important;
+    color: black !important;
+    border: 1px solid black !important;
+    border-radius: 3px;
     width: 50px;
     height: 20px;
   }
@@ -90,6 +91,9 @@
   }
 
   #botao-filtro:hover {
+    background-color: #3e8e41 !important;
+    color: white !important;
+    border: none !important;
     box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
                 -4px -4px 6px 0 rgba(116, 125, 136, .5), 
       inset -4px -4px 6px 0 rgba(255,255,255,.2),
