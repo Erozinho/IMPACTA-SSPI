@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <title>{% block title %} Fazenda a Venda {% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{% static 'base.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}"/>
     <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -13,8 +14,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
 </head>
 
-<script>function loginredirect() { window.location.href = "/login";} </script>
-<script>function homeredirect() { window.location.href = "/";} </script>
+
 
 <div class="wrapper">
   <header class="page-header">
@@ -34,10 +34,10 @@
           <a href="/contact">Contatos</a>
         </li>
         <li>
-          <a class="cadastro" href="/cadastrar">Add Terra</a>
+          <a id="cadastro" href="/cadastrar">Add Terra</a>
         </li>
       </ul>
-      <button onclick="loginredirect()" class="cta-contact">Entrar</button>
+      <button onclick="loginredirect()" id="login" class="cta-contact">Entrar</button>
     </nav>
 
   </header>
@@ -77,4 +77,5 @@
     </ul>
   </footer>
 </div>
+<h1 id="sid">{{ request.session.localID }}</h1>
 {% sweetify %}

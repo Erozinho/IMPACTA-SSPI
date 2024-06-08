@@ -5,7 +5,6 @@ import sweetify
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
-from werkzeug.utils import secure_filename
 from google.cloud.firestore_v1.base_query import FieldFilter
 from django.core.files.storage import FileSystemStorage
 import os
@@ -41,9 +40,11 @@ db = firestore.client()
 def home(request):
     if request.method == "GET":
         try:
-            user_id = request.session['localID']
+            user_id = request.session.get('localID', "uid")
+            user_id = str(user_id)
+            print("USR:", user_id)
             if user_id in locals():
-                return render(request, "home.html", {"uid": user_id})
+                return render(request, "home.html")
 
             else:
                 return render(request, "home.html")
@@ -68,11 +69,13 @@ def login(request):
             return render(request, "login.html")
         session_id = user['idToken']
         user_id = user['localId']
+        user_id = str(user_id)
+        print(user_id)
         request.session['localID'] = str(user_id)
-        request.session['uid'] = str(session_id)
+        request.session['userId'] = str(session_id)
         sweetify.success(request, "LOGIN REALIZADO",
                          text="Login realizado com!")
-        return redirect('/', {"sid": str(user_id)})
+        return redirect('/', {'user_id': user_id})
 
 
 def register(request):
@@ -96,10 +99,10 @@ def register(request):
 
 
 def logout(request):
-    uid = request.session['uid']
+    uid = request.session['userId']
     localID = request.session['localID']
     try:
-        del request.session['uid']
+        del request.session['userId']
         del request.session['localID']
     except uid.DoesNotExist or localID.DoesNotExist:
         pass
