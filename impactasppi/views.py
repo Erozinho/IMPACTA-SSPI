@@ -139,17 +139,16 @@ def terrenos(request):
         context = {'propiedades': propiedades}
         return render(request, "terrenos.html", context)
     else:
-        margem_erro = 50
         estado = request.POST.get('state')
         metro = request.POST.get('metro')
         propiedades = {}
         print(estado, metro)
         if estado is not None:
             docs = db.collection("produtos").where(filter=FieldFilter("estado", "==", estado)).stream()
-        elif metro is not None and estado is None:
-            docs = db.collection("produtos").where("metragem", "<=", metro + margem_erro).stream()
+        elif metro is not None:
+            docs = db.collection("produtos").where("metragem", "<=", metro).stream()
         elif estado is not None and metro is not None:
-            docs = db.collection("produtos").where("estado", "==", estado).where("metragem", "<=", metro + margem_erro).stream()
+            docs = db.collection("produtos").where("estado", "==", estado).where("metragem", "<=", metro).stream()
         else:
             docs = db.collection("produtos").stream()
         for doc in docs:
