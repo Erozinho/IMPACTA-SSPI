@@ -44,12 +44,12 @@
             <option value="Sergipe">Sergipe</option>
             <option value="Tocantins">Tocantins</option>
         </select>
-        <div id="metragem">
-          <input name="metro" type="range" min="100" max="1000" value="500" class="slider" id="myRange">
-          <label>Metragem: <span id="demo"></span></label>
-        </div>
-        <button id="botao-filtro" onclick="applyFilters()">Aplicar</button>
-    </div>
+      </div>
+      <div id="metragem">
+        <input name="metro" type="range" min="100" max="1000" value="500" class="slider" id="myRange">
+        <label>Metragem: <span id="demo"></span> M²</label>
+      </div>
+      <button id="botao-filtro" onclick="applyFilters()">Aplicar</button>
   </div>
 </form>
 
@@ -71,59 +71,14 @@
 {% endfor %}
 
 <script>
-  function showList(e) {
-    var $gridCont = $('.grid-container');
-    e.preventDefault();
-    $gridCont.hasClass('list-view') ? $gridCont.removeClass('list-view') : $gridCont.addClass('list-view');
-  }
-
-  function gridList(e) {
-    var $gridCont = $('.grid-container')
-    e.preventDefault();
-    $gridCont.removeClass('list-view');
-  }
-
-  $(document).on('click', '.btn-grid', gridList);
-  $(document).on('click', '.btn-list', showList);
-
-
   var slider = document.getElementById("myRange");
   var output = document.getElementById("demo");
-  output.innerHTML = slider.value;
+  output.innerHTML = slider.value; 
 
   slider.oninput = function() {
     output.innerHTML = this.value;
   }
-
-  // ______________________
-  // function applyFilters() {
-  //           // Obtém os valores dos inputs
-  //           const estado = document.getElementById('state').value;
-  //           const metragem = document.getElementById('myRange').value;
-
-  //           // Constrói a URL com os parâmetros de consulta
-  //           const url = `/filtrar_terrenos/?state=${encodeURIComponent(estado)}&metragem=${encodeURIComponent(metragem)}`;
-
-  //           // Envia uma requisição GET para a URL construída
-  //           fetch(url)
-  //           .then(response => response.json())
-  //           .then(data => {
-  //               const resultadosDiv = document.getElementById('resultados');
-  //               resultadosDiv.innerHTML = ''; // Limpar resultados anteriores
-                
-  //               // Exibir novos resultados
-  //               for (const id in data) {
-  //                   const item = document.createElement('div');
-  //                   item.textContent = `ID: ${id}, Detalhes: ${JSON.stringify(data[id])}`;
-  //                   resultadosDiv.appendChild(item);
-  //               }
-  //           })
-  //           .catch(error => {
-  //               console.error('Error:', error);
-  //           });
-  //       }
-  // ______________________
-
+  
 </script>
 </body>
 
