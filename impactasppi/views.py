@@ -148,9 +148,9 @@ def terrenos(request):
         if estado is not None:
             docs = db.collection("produtos").where(filter=FieldFilter("estado", "==", estado)).stream()
         elif metro is not None:
-            docs = db.collection("produtos").where(filter=FieldFilter("metro", "<=", float(metro))).stream()
+            docs = db.collection("produtos").where(filter=FieldFilter("metro", "<", float(metro+1))).stream()
         elif estado is not None and metro is not None:
-            docs = db.collection("produtos").where(filter=FieldFilter("estado", "==", estado)).where(filter=FieldFilter("metro", "<=", float(metro))).stream()
+            docs = db.collection("produtos").where(filter=FieldFilter("estado", "==", estado)).where(filter=FieldFilter("metro", "<", float(metro+1))).stream()
         else:
             docs = db.collection("produtos").stream()
         for doc in docs:
